@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+    // ((EditText)findViewById(R.id.et_id))
     public void clickLogin(View v) {
         String email = ((EditText)findViewById(R.id.et_id)).getText().toString(); // id 입력란 : "admin";
         String password = ((EditText)findViewById(R.id.et_pass)).getText().toString();// pw 입력란 : "sometalk";
