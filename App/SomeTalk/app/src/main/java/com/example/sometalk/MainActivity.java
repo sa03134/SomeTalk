@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     public void clickLogin(View v) {
         String email = ((EditText)findViewById(R.id.et_id)).getText().toString(); // id 입력란 : "admin";
         String password = ((EditText)findViewById(R.id.et_pass)).getText().toString();// pw 입력란 : "sometalk";
+        email = "admin";
+        password = "sometalk";
 
         WebLogic mAuthTask = new WebLogic(email, password);
         try {
