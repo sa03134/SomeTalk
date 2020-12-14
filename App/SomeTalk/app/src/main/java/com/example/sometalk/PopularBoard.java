@@ -8,7 +8,9 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 
 public class PopularBoard extends AppCompatActivity {
 
@@ -27,5 +29,26 @@ public class PopularBoard extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        PopularBoardAdapter adapter = new PopularBoardAdapter();
+
+        ListView listview = (ListView) findViewById(R.id.popular_board_list);
+        listview.setVerticalScrollBarEnabled(false);
+        listview.setAdapter(adapter);
+
+
+        ((MainActivity)MainActivity.context_main).w.getPopularPage();
+
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        for(int i = 0; i < ((CrawlingBoardTask)((MainActivity)MainActivity.context_main).w.CBT).CBI_COUNT; ++i) {
+            CrawlingBoardItem CBI = ((MainActivity)MainActivity.context_main).w.CBT.CBI[i];
+            adapter.addItem(CBI.getTitle(), CBI.getAuthor() + " | " + CBI.getDatetime());
+        }
     }
 }

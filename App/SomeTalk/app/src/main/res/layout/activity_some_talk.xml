@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".SomeTalk">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="3"
+        android:columnCount="3"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
+
     <Button
         android:id="@+id/mentor_management"
         android:layout_width="108dp"
         android:layout_height="111dp"
-
         android:text="멘토 관리"
         tools:layout_editor_absoluteX="259dp"
         tools:layout_editor_absoluteY="253dp"
@@ -81,4 +89,5 @@
         tools:layout_editor_absoluteX="259dp"
         tools:layout_editor_absoluteY="364dp"
         tools:ignore="MissingConstraints" />
+    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
