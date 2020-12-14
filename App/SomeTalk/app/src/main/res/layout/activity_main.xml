@@ -24,7 +24,7 @@
             android:layout_marginBottom="30dp"
             android:background="#00FFFFFF"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/biglogo" />
     </LinearLayout>
 
 
