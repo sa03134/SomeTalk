@@ -21,8 +21,13 @@ public class SomeTalk extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void popular(View view) {
+    public void popularBoard(View view) {
         Intent intent = new Intent(getApplicationContext(),PopularBoard.class);
+        startActivity(intent);
+    }
+
+    public void selectBoard(View view) {
+        Intent intent = new Intent(getApplicationContext(), SelectBoard.class);
         startActivity(intent);
     }
 }

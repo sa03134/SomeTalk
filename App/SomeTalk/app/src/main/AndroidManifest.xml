@@ -19,27 +19,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SomeTalk">
+        <activity android:name=".Board_Twenty"></activity>
+        <activity android:name=".Board_Teen" />
+        <activity android:name=".SelectBoard" />
         <activity
             android:name=".PopularBoard"
             android:label="@string/title_activity_popular_board"
-            android:theme="@style/Theme.SomeTalk.NoActionBar"></activity>
+            android:theme="@style/Theme.SomeTalk.NoActionBar" />
         <activity android:name=".Board" />
-
-        <!-- <uses-library
+        <!--
+ <uses-library
             android:name="com.google.android.wearable"
-            android:required="true" />-->
+            android:required="true" />
+        -->
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-        <activity android:name=".FirstFragment"
+        <activity
+            android:name=".FirstFragment"
             tools:ignore="Instantiatable" />
-        <activity android:name=".SecondFragment"
+        <activity
+            android:name=".SecondFragment"
             tools:ignore="Instantiatable" />
 
         <meta-data
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
+
         <activity android:name=".SomeTalk" />
         <activity android:name=".MainActivity">
             <intent-filter>

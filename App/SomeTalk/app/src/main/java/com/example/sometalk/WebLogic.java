@@ -55,4 +55,14 @@ public class WebLogic {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("get_popular_board");
     }
+
+    public void getTeenBoard(int page) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("get_teen_board", Integer.toString(page));
+    }
+
+    public void getTwentyBoard(int page) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("get_twenty_board", Integer.toString(page));
+    }
 }

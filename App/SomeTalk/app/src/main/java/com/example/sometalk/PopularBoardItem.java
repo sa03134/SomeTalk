@@ -1,6 +1,6 @@
 package com.example.sometalk;
 
-public class PopularBoardItem {
+class BoardItem {
     private int BoardType ; // 게시판 번호
     private int Index ; // 게시글 번호
     private String Title ; // 게시글 제목
@@ -74,4 +74,17 @@ public class PopularBoardItem {
     public void setLike(int like) {
         Like = like;
     }
+}
+
+
+public class PopularBoardItem extends BoardItem{
+
+}
+
+class TeenBoardItem extends BoardItem{
+
+}
+
+class TwentyBoardItem extends BoardItem{
+
 }

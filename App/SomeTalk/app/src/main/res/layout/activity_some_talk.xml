@@ -29,7 +29,7 @@
         android:layout_width="108dp"
         android:layout_height="111dp"
         android:text="인기 게시글"
-        android:onClick="popular"
+        android:onClick="popularBoard"
         tools:layout_editor_absoluteX="43dp"
         tools:layout_editor_absoluteY="142dp"
         tools:ignore="MissingConstraints" />
@@ -39,6 +39,7 @@
         android:layout_width="108dp"
         android:layout_height="111dp"
         android:text="게시판"
+        android:onClick="selectBoard"
         tools:layout_editor_absoluteX="151dp"
         tools:layout_editor_absoluteY="142dp"
         tools:ignore="MissingConstraints" />
