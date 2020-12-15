@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -163,6 +164,54 @@ class TwentyBoardAdapter extends BaseAdapter {
         item.setTitle(Title);
         item.setContent(Content);
 
+        listViewItemList.add(item);
+    }
+}
+
+class CommentListAdapter extends BaseAdapter {
+
+    private ArrayList<CommentListItem> listViewItemList = new ArrayList<>();
+
+    @Override
+    public int getCount() {
+        return listViewItemList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return listViewItemList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos = position;
+        final Context context = parent.getContext();
+
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_comment_view, parent, false);
+        }
+
+        TextView Content = (TextView) convertView.findViewById(R.id.Comment_Content) ;
+        TextView Author = (TextView) convertView.findViewById(R.id.Author) ;
+        TextView Date = (TextView) convertView.findViewById(R.id.Date) ;
+
+        CommentListItem listViewItem = listViewItemList.get(position);
+
+        Content.setText(listViewItem.getContent());
+        Author.setText(listViewItem.getAuthor());
+        Date.setText(listViewItem.getDate());
+
+        return convertView;
+    }
+
+    public void addItem(String Author, String Date, String Content) {
+        CommentListItem item = new CommentListItem(Author, Date, Content);
         listViewItemList.add(item);
     }
 }

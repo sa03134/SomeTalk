@@ -27,6 +27,9 @@ public class WebLogic {
         this.password = password;
     }
 
+    public String getPassword() { return password; }
+    public String getEmail() { return email; }
+
     public boolean attemptLogin() {
         if (mAuthTask != null) return true;
 
@@ -74,5 +77,20 @@ public class WebLogic {
     public void setPost(String Board_Type, String Category, String Title, String Content) {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("setPost", Board_Type, Category, Title, Content);
+    }
+
+    public void setComment(String Board_Type, String No, String Comment) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("setComment", Board_Type, No, Comment);
+    }
+
+    public void deletePost(String Type, String No) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("deletePost", Type, No);
+    }
+
+    public void editPost(String Type, String No, String Title, String Content) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("editPost", Type, No, Title, Content);
     }
 }

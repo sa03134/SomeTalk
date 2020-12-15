@@ -88,3 +88,39 @@ class TeenBoardItem extends BoardItem{
 class TwentyBoardItem extends BoardItem{
 
 }
+
+class CommentListItem {
+    private String Author;
+    private String Date;
+    private String Content;
+
+    CommentListItem(String Author, String Date, String Content) {
+        setAuthor(Author);
+        setDate(Date);
+        setContent(Content);
+    }
+
+    public String getAuthor() {
+        return Author;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getContent() {
+        return Content;
+    }
+
+    public void setContent(String content) {
+        Content = content;
+    }
+}

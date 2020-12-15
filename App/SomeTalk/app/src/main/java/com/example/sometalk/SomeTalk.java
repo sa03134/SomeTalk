@@ -30,4 +30,9 @@ public class SomeTalk extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), SelectBoard.class);
         startActivity(intent);
     }
+
+    public void profile(View view) {
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        startActivity(intent);
+    }
 }
