@@ -23,10 +23,9 @@
         <activity android:name=".Board_Twenty" />
         <activity android:name=".Board_Teen" />
         <activity android:name=".SelectBoard" />
-        <activity
-            android:name=".PopularBoard"
-            android:label="@string/title_activity_popular_board"
-            android:theme="@style/Theme.SomeTalk.NoActionBar" />
+        <activity android:name=".PopularBoard"/>
+<!--            android:label="@string/title_activity_popular_board"-->
+<!--            android:theme="@style/Theme.SomeTalk.NoActionBar" />-->
         <activity android:name=".Board" />
         <!--
  <uses-library

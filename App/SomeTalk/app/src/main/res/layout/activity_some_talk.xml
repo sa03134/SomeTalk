@@ -24,15 +24,20 @@
         tools:layout_editor_absoluteY="253dp"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/popluar_board"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="인기 게시글"
-        android:onClick="popularBoard"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="142dp"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:layout_width="108dp"
+            android:layout_height="111dp"
+            android:onClick="popularBoard"
+            android:src="@drawable/popular_logo" />
+<!--    <Button-->
+<!--        android:id="@+id/popluar_board"-->
+<!--        android:layout_width="108dp"-->
+<!--        android:layout_height="111dp"-->
+<!--        android:text="인기 게시글"-->
+<!--        android:onClick="popularBoard"-->
+<!--        tools:layout_editor_absoluteX="43dp"-->
+<!--        tools:layout_editor_absoluteY="142dp"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
     <Button
         android:id="@+id/board"
