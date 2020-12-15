@@ -29,7 +29,7 @@ public class ViewPostActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.TitleText)).setText(CBI.getTitle());
         ((TextView)findViewById(R.id.AuthorText)).setText(CBI.getAuthor());
         ((TextView)findViewById(R.id.DateTimeText)).setText(CBI.getDatetime());
-        ((TextView)findViewById(R.id.ContentText)).setText(CBI.getContent());
+        ((TextView)findViewById(R.id.ContentText)).setText(CBI.getContent() + "\n");
 
     }
 }

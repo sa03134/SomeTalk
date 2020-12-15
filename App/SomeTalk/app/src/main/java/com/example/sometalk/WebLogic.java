@@ -70,4 +70,9 @@ public class WebLogic {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("getPost", Link);
     }
+
+    public void setPost(String Board_Type, String Category, String Title, String Content) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("setPost", Board_Type, Category, Title, Content);
+    }
 }

@@ -21,12 +21,14 @@
             android:layout_height="100dp"
             android:layout_marginRight="20dp"
             android:onClick="gotoTeenBoard"
+            android:fontFamily="@font/sdswagger"
             android:text="10대 게시판" />
 
         <Button
             android:id="@+id/twenty_something_board"
             android:layout_width="161dp"
             android:layout_height="100dp"
+            android:fontFamily="@font/sdswagger"
             android:onClick="gotoTwentyBoard"
             android:text="20대 게시판" />
 
@@ -36,12 +38,14 @@
             android:layout_marginTop="10dp"
             android:layout_width="161dp"
             android:layout_height="100dp"
+            android:fontFamily="@font/sdswagger"
             android:text="게시판 1" />
 
         <Button
             android:id="@+id/testBoardButton2"
             android:layout_marginTop="10dp"
             android:layout_width="161dp"
+            android:fontFamily="@font/sdswagger"
             android:layout_height="100dp"
             android:text="게시판 2" />
 

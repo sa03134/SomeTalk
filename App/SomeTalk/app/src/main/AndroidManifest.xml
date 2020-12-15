@@ -19,13 +19,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SomeTalk.NoActionBar">
-        <activity android:name=".ViewPostActivity"></activity>
+        <activity android:name=".WritePostActivity"></activity>
+        <activity android:name=".ViewPostActivity" />
         <activity android:name=".Board_Twenty" />
         <activity android:name=".Board_Teen" />
         <activity android:name=".SelectBoard" />
-        <activity android:name=".PopularBoard"/>
-<!--            android:label="@string/title_activity_popular_board"-->
-<!--            android:theme="@style/Theme.SomeTalk.NoActionBar" />-->
+        <activity android:name=".PopularBoard" /> <!-- android:label="@string/title_activity_popular_board" -->
+        <!-- android:theme="@style/Theme.SomeTalk.NoActionBar" /> -->
         <activity android:name=".Board" />
         <!--
  <uses-library

@@ -1,5 +1,6 @@
 package com.example.sometalk;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,9 +11,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class PopularBoard extends AppCompatActivity {
+    PopularBoardAdapter adapter;
+    ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +34,32 @@ public class PopularBoard extends AppCompatActivity {
             }
         });
 
-        PopularBoardAdapter adapter = new PopularBoardAdapter();
-
-        ListView listview = (ListView) findViewById(R.id.popular_board_list);
+        listview = (ListView) findViewById(R.id.popular_board_list);
         listview.setVerticalScrollBarEnabled(false);
-        listview.setAdapter(adapter);
 
+        init();
+
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(), ViewPostActivity.class);
+                intent.putExtra("Link", ((MainActivity)MainActivity.context_main).w.CBT.CBI[position].getLink());
+                startActivityForResult(intent, 1);
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestcode, int resultCode, Intent data) {
+        super.onActivityResult(requestcode, resultCode, data);
+        init();
+    }
+
+    public void init() {
+        adapter = new PopularBoardAdapter();
+        listview.setAdapter(adapter);
 
         ((MainActivity)MainActivity.context_main).w.getPopularPage();
 

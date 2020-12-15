@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class Board_Twenty extends AppCompatActivity {
     TwentyBoardAdapter adapter = null;
     ListView listview;
@@ -15,6 +17,17 @@ public class Board_Twenty extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board__twenty);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WritePostActivity.class);
+                intent.putExtra("Type", "2");
+                startActivityForResult(intent, 1);
+                adapter.notifyDataSetChanged();
+            }
+        });
 
         listview = (ListView) findViewById(R.id.twenty_board_list);
         listview.setVerticalScrollBarEnabled(false);

@@ -15,85 +15,66 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp">
 
-    <Button
-        android:id="@+id/mentor_management"
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/manage_mentor" />
+
+    <ImageView
         android:layout_width="108dp"
         android:layout_height="111dp"
-        android:text="멘토 관리"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="253dp"
-        tools:ignore="MissingConstraints" />
+        android:onClick="popularBoard"
+        android:src="@drawable/popular_logo" />
 
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="111dp"
-            android:onClick="popularBoard"
-            android:src="@drawable/popular_logo" />
-<!--    <Button-->
-<!--        android:id="@+id/popluar_board"-->
-<!--        android:layout_width="108dp"-->
-<!--        android:layout_height="111dp"-->
-<!--        android:text="인기 게시글"-->
-<!--        android:onClick="popularBoard"-->
-<!--        tools:layout_editor_absoluteX="43dp"-->
-<!--        tools:layout_editor_absoluteY="142dp"-->
-<!--        tools:ignore="MissingConstraints" />-->
-
-    <Button
-        android:id="@+id/board"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="게시판"
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:onClick="selectBoard"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="142dp"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/dashboard"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="대시보드"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="364dp"
-        tools:ignore="MissingConstraints" />
+        android:src="@drawable/board_logo" />
 
 
-    <Button
-        android:id="@+id/user_management"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="사용자 관리"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="364dp"
-        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:layout_marginLeft="-5dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:onClick="selectBoard"
+        android:src="@drawable/dashboard" />
 
-    <Button
-        android:id="@+id/ask_question"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="질문하기"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="253dp"
-        tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/mentor_rank"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="멘토 랭킹"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="142dp"
-        tools:ignore="MissingConstraints" />
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:onClick="selectBoard"
+        android:src="@drawable/manage_user" />
 
-    <Button
-        android:id="@+id/post_management"
-        android:layout_width="108dp"
-        android:layout_height="111dp"
-        android:text="게시글 관리"
-        android:onClick="management_mentor"
-        tools:layout_editor_absoluteX="259dp"
-        tools:layout_editor_absoluteY="364dp"
-        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/qa" />
+
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/mentor_rank" />
+
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/manage_board" />
+
+
     </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -138,6 +138,54 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                 }
                 break;
 
+            case "setPost" :
+                String body = "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"category\"\n" +
+                        "\n" +
+                        voids[2].substring(voids[2].length() - 1) + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"Title\"\n" +
+                        "\n" +
+                        voids[3] + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"Content\"\n" +
+                        "\n" +
+                        voids[4] + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"Type\"\n" +
+                        "\n" +
+                        voids[1] + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"file\"; filename=\"\"\n" +
+                        "Content-Type: application/octet-stream\n" +
+                        "\n" +
+                        "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V--\n";
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/WritePost")
+                            .header("Content-Type", "multipart/form-data; boundary=----WebKitFormBoundary3Fc9KrOBytBNQJ6V")
+                            .header("Accept-Encoding", "gzip, deflate")
+                            .header("Accept-Language", "en-US,en;q=0.9,ko;q=0.8")
+                            .userAgent(userAgent)
+                            .requestBody(body)
+//                            .data("Type", voids[1],
+//                                    "category", voids[2].substring(voids[2].length() - 1),
+//                                    "Title", voids[3],
+//                                    "Content", voids[4]
+//                            )
+                            .ignoreContentType(true)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.POST)
+                            .timeout(5000)
+                            .execute();
+
+
+
+                } catch (IOException e) {
+
+                }
+                break;
+
         }
 
         return null;
