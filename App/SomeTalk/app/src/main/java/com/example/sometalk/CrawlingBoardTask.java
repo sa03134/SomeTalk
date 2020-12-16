@@ -19,6 +19,9 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
     public int CBI_COUNT = 0;
     public CrawlingBoardItem RecentPost = null;
     public CommentListItem Comments[];
+    public ReplyListItem Replys[];
+    public boolean isReplyPerm = false;
+    public boolean isAccept = false;
 
 
     CrawlingBoardTask(Map<String, String> UserCookie) {
@@ -135,12 +138,40 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     RecentPost.setContent(Content);
 
                     Elements es = doc.select("#CommentContent");
-
                     Comments = new CommentListItem[es.size()];
 
                     for(int i = 0; i < es.size(); ++i) {
-                        Comments[i] = new CommentListItem(es.get(i).select("#Author").text(), es.get(i).select("#Date").text(), es.get(i).select("#Content").text());
+                        if(es.get(i).select("#pkey").attr("pkey") != null && es.get(i).select("#pkey").attr("pkey") != "") {
+                            String pKey = es.get(i).select("#pkey").attr("pkey") + "_" + String.valueOf(i);
+                            Comments[i] = new CommentListItem(es.get(i).select("#Author").text(), es.get(i).select("#Date").text(), es.get(i).select("#Content").text(), pKey);
+                        }
+                        else {
+                            Comments[i] = new CommentListItem(es.get(i).select("#Author").text(), es.get(i).select("#Date").text(), es.get(i).select("#Content").text());
+                        }
                     }
+
+                    Elements Reply_elements = doc.select("#ReplyContent");
+                    Replys = new ReplyListItem[Reply_elements.size()];
+
+                    for(int i = 0; i < Reply_elements.size(); ++i) {
+                        if(!isAccept) {
+                            isAccept = Reply_elements.get(i).select("#acceptReply").attr("value").equals("1");
+                        }
+
+                        Replys[i] = new ReplyListItem(Reply_elements.get(i).select("#Author").text(),
+                                                    Reply_elements.get(i).select("#Date").text(),
+                                                    Reply_elements.get(i).select("#Content").text(),
+                                                    String.valueOf(voids[1]),
+                                                    Reply_elements.get(i).select("#acceptReply").attr("value").equals("1")
+                        );
+                    }
+
+                    Element Element_isReplyPerm = doc.selectFirst("#isReplyPerm");
+
+                    isReplyPerm = (Element_isReplyPerm != null) ? true : false;
+                    if(isAccept) isReplyPerm = false;
+
+
                 } catch (IOException e) {
 
                 }
@@ -294,7 +325,67 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                 }
                 break;
 
+            case "deleteComment" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/DeleteComment")
+                            .ignoreContentType(true)
+                            .data("pkey", voids[1])
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+                } catch (IOException e) {
 
+                }
+                break;
+
+            case "deleteReply" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/" + voids[1])
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "setReply" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/WriteReply")
+                            .data(
+                                    "Type", voids[1],
+                                    "No", voids[2],
+                                    "Content", voids[3]
+                            )
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "acceptReply" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/" + voids[1])
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+                } catch (IOException e) {
+
+                }
+                break;
         }
 
         return null;

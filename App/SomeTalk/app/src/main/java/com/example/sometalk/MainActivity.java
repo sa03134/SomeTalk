@@ -34,11 +34,16 @@ public class MainActivity extends AppCompatActivity {
 
         if(w.attemptLogin()) { // 쿠키 값이 생겼다면(로그인에 성공했다면)
             Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(getApplicationContext(), SomeTalk.class);
+            Intent intent = new Intent(getApplicationContext(), SometalkMain.class);
             startActivity(intent);// SomeTalk Activity로 이동
         }
         else { // Fail
             Toast.makeText(this, "로그인 실패", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void clickRegister(View v) {
+        Intent intent = new Intent(getApplicationContext(), Join.class);
+        startActivity(intent);
     }
 }

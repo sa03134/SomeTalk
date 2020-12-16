@@ -22,23 +22,11 @@ public class PopularBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popular_board);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         listview = (ListView) findViewById(R.id.popular_board_list);
         listview.setVerticalScrollBarEnabled(false);
 
         init();
-
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

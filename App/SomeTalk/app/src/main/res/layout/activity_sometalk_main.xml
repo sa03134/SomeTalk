@@ -7,213 +7,233 @@
     android:orientation="vertical"
     tools:context=".SometalkMain">
 
-    <ImageView
-        android:id="@+id/imageView16"
-        android:layout_width="match_parent"
+
+
+    <ScrollView android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        app:srcCompat="@drawable/ad" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/hot" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/metorranking" />
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/profile" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="90dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/posting" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="232dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/roundlayout"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fillViewport="true">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/sdswagger"
-            android:text="게시판"
-            android:textSize="16sp" />
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                app:srcCompat="@drawable/ad" />
 
-        <TextView
-            android:id="@+id/bottomBar1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/teen_board" />
-
-        <TextView
-            android:id="@+id/bottomBar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/twenty_board" />
-
-        <TextView
-            android:id="@+id/bottomBar3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/category1_board" />
-
-        <TextView
-            android:id="@+id/bottomBar5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/category2_board" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="189dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/roundlayout"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/sdswagger"
-            android:text="관리자 기능"
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/bottomBar6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/dash_board" />
-
-        <TextView
-            android:id="@+id/bottomBar7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/post_management" />
-
-        <TextView
-            android:id="@+id/bottomBar8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/border"
-            android:scrollbars="vertical"
-            android:textColor="#000000"
-            android:textSize="2dp" />
-
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="102dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="10dp"
-            app:srcCompat="@drawable/user_management" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:orientation="horizontal">
 
 
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_weight="1"
+                    android:onClick="popularBoard"
+                    app:srcCompat="@drawable/hot" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/metorranking" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/profile" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/posting" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="232dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/roundlayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="게시판"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/bottomBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    android:onClick="gotoTeenBoard"
+                    app:srcCompat="@drawable/teen_board" />
+
+                <TextView
+                    android:id="@+id/bottomBar2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    android:onClick="gotoTwentyBoard"
+                    app:srcCompat="@drawable/twenty_board" />
+
+                <TextView
+                    android:id="@+id/bottomBar3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/category1_board" />
+
+                <TextView
+                    android:id="@+id/bottomBar5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/category2_board" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="189dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/roundlayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="관리자 기능"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/bottomBar6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/dash_board" />
+
+                <TextView
+                    android:id="@+id/bottomBar7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/post_management" />
+
+                <TextView
+                    android:id="@+id/bottomBar8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/border"
+                    android:scrollbars="vertical"
+                    android:textColor="#000000"
+                    android:textSize="2dp" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="102dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/user_management" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </LinearLayout>

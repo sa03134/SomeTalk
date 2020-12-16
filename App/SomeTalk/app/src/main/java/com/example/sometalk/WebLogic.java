@@ -93,4 +93,24 @@ public class WebLogic {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("editPost", Type, No, Title, Content);
     }
+
+    public void deleteComment(String pKey) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("deleteComment", pKey);
+    }
+
+    public void deleteReply(String pKey) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("deleteReply", pKey);
+    }
+
+    public void setReply(String Type, String No, String Reply) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("setReply", Type, No, Reply);
+    }
+
+    public void acceptReply(String pKey) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("acceptReply", pKey);
+    }
 }

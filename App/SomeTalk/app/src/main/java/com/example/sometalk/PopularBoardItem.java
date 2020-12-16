@@ -93,11 +93,20 @@ class CommentListItem {
     private String Author;
     private String Date;
     private String Content;
+    private String pkey;
 
     CommentListItem(String Author, String Date, String Content) {
         setAuthor(Author);
         setDate(Date);
         setContent(Content);
+        pkey = "";
+    }
+
+    public CommentListItem(String Author, String Date, String Content, String pKey) {
+        setAuthor(Author);
+        setDate(Date);
+        setContent(Content);
+        setPkey(pKey);
     }
 
     public String getAuthor() {
@@ -122,5 +131,37 @@ class CommentListItem {
 
     public void setContent(String content) {
         Content = content;
+    }
+
+    public String getPkey() {  return pkey; }
+
+    public void setPkey(String pkey) {
+        this.pkey = pkey;
+    }
+}
+
+
+class ReplyListItem extends CommentListItem {
+    private boolean isAccepted = false;
+
+    public ReplyListItem(String Author, String Date, String Content) {
+        super(Author, Date, Content);
+    }
+
+    public ReplyListItem(String Author, String Date, String Content, String pKey) {
+        super(Author, Date, Content, pKey);
+    }
+
+    public ReplyListItem(String Author, String Date, String Content, String pKey, boolean isAccepted) {
+        super(Author, Date, Content, pKey);
+        setAccepted(isAccepted);
+    }
+
+    public boolean getAccepted() {
+        return isAccepted;
+    }
+
+    public void setAccepted(boolean accepted) {
+        isAccepted = accepted;
     }
 }

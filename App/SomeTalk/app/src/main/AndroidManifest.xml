@@ -28,7 +28,6 @@
         <activity android:name=".ViewPostActivity" />
         <activity android:name=".Board_Twenty" />
         <activity android:name=".Board_Teen" />
-        <activity android:name=".SelectBoard" />
         <activity android:name=".PopularBoard" /> <!-- android:label="@string/title_activity_popular_board" -->
         <!-- android:theme="@style/Theme.SomeTalk.NoActionBar" /> -->
         <activity android:name=".Board" />
@@ -52,7 +51,6 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".SomeTalk" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
