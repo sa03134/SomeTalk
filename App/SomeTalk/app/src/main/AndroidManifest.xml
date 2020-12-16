@@ -19,8 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SomeTalk.NoActionBar">
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".EditPostActivity"></activity>
+        <activity android:name=".Mentor_Ad" />
+        <activity android:name=".SometalkMain" />
+        <activity android:name=".Join" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".EditPostActivity" />
         <activity android:name=".WritePostActivity" />
         <activity android:name=".ViewPostActivity" />
         <activity android:name=".Board_Twenty" />
