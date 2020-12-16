@@ -134,6 +134,7 @@
                     android:layout_width="102dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
+                    android:onClick="gotoSomeBoard"
                     app:srcCompat="@drawable/category1_board" />
 
                 <TextView
@@ -151,6 +152,7 @@
                     android:layout_width="102dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
+                    android:onClick="gotoLoveBoard"
                     app:srcCompat="@drawable/category2_board" />
 
             </LinearLayout>

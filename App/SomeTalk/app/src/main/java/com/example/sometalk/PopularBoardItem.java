@@ -89,6 +89,14 @@ class TwentyBoardItem extends BoardItem{
 
 }
 
+class SomeBoardItem extends BoardItem{
+
+}
+
+class LoveBoardItem extends BoardItem{
+
+}
+
 class CommentListItem {
     private String Author;
     private String Date;

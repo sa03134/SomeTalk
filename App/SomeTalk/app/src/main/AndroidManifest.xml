@@ -19,6 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SomeTalk.NoActionBar">
+        <activity android:name=".Board_Love"></activity>
+        <activity android:name=".Board_Some" />
         <activity android:name=".Mentor_Ad" />
         <activity android:name=".SometalkMain" />
         <activity android:name=".Join" />

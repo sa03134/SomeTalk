@@ -28,4 +28,14 @@ public class SometalkMain extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),PopularBoard.class);
         startActivity(intent);
     }
+
+    public void gotoSomeBoard(View view) {
+        Intent intent = new Intent(getApplicationContext(),Board_Some.class);
+        startActivity(intent);
+    }
+
+    public void gotoLoveBoard(View view) {
+        Intent intent = new Intent(getApplicationContext(),Board_Love.class);
+        startActivity(intent);
+    }
 }

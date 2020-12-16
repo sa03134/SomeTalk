@@ -64,6 +64,16 @@ public class WebLogic {
         CBT.execute("get_teen_board", Integer.toString(page));
     }
 
+    public void getSomeBoard(int page) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("get_some_board", Integer.toString(page));
+    }
+
+    public void getLoveBoard(int page) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("get_love_board", Integer.toString(page));
+    }
+
     public void getTwentyBoard(int page) {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("get_twenty_board", Integer.toString(page));

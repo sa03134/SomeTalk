@@ -114,6 +114,60 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                 }
                 break;
 
+            case "get_some_board" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/board?Type=3&Page=" + voids[1])
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+
+
+                    Document doc = res.parse();
+
+                    Elements e = doc.select("#boardRow");
+
+                    CBI = new CrawlingBoardItem[e.size()];
+                    CBI_COUNT = e.size();
+
+                    for(int i = 0; i < e.size(); ++i) {
+                        CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
+                        CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                    }
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "get_love_board" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/board?Type=4&Page=" + voids[1])
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+
+
+                    Document doc = res.parse();
+
+                    Elements e = doc.select("#boardRow");
+
+                    CBI = new CrawlingBoardItem[e.size()];
+                    CBI_COUNT = e.size();
+
+                    for(int i = 0; i < e.size(); ++i) {
+                        CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
+                        CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                    }
+                } catch (IOException e) {
+
+                }
+                break;
+
             case "getPost" :
                 try {
                     Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/" + voids[1])

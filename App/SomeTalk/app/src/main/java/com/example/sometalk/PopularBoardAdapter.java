@@ -173,6 +173,107 @@ class TwentyBoardAdapter extends BaseAdapter {
     }
 }
 
+class SomeBoardAdapter extends BaseAdapter {
+
+    private ArrayList<SomeBoardItem> listViewItemList = new ArrayList<>();
+
+    @Override
+    public int getCount() {
+        return listViewItemList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return listViewItemList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos = position;
+        final Context context = parent.getContext();
+
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_board_teen, parent, false);
+        }
+
+        TextView Content = (TextView) convertView.findViewById(R.id.PostAuthor) ;
+        TextView Title = (TextView) convertView.findViewById(R.id.PostTitle) ;
+
+        SomeBoardItem listViewItem = listViewItemList.get(position);
+
+        Content.setText(listViewItem.getContent());
+        Title.setText(listViewItem.getTitle());
+
+        return convertView;
+    }
+
+    public void addItem(String Title, String Content) {
+        SomeBoardItem item = new SomeBoardItem();
+
+        item.setTitle(Title);
+        item.setContent(Content);
+
+        listViewItemList.add(item);
+    }
+}
+
+class LoveBoardAdapter extends BaseAdapter {
+
+    private ArrayList<LoveBoardItem> listViewItemList = new ArrayList<>();
+
+    @Override
+    public int getCount() {
+        return listViewItemList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return listViewItemList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos = position;
+        final Context context = parent.getContext();
+
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_board_teen, parent, false);
+        }
+
+        TextView Content = (TextView) convertView.findViewById(R.id.PostAuthor) ;
+        TextView Title = (TextView) convertView.findViewById(R.id.PostTitle) ;
+
+        LoveBoardItem listViewItem = listViewItemList.get(position);
+
+        Content.setText(listViewItem.getContent());
+        Title.setText(listViewItem.getTitle());
+
+        return convertView;
+    }
+
+    public void addItem(String Title, String Content) {
+        LoveBoardItem item = new LoveBoardItem();
+
+        item.setTitle(Title);
+        item.setContent(Content);
+
+        listViewItemList.add(item);
+    }
+}
+
+
 class CommentListAdapter extends BaseAdapter {
     private ArrayList<CommentListItem> listViewItemList = new ArrayList<>();
 
