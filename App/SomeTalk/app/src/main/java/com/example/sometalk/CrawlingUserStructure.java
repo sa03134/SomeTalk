@@ -29,6 +29,13 @@ public class CrawlingUserStructure {
         setEMAIL(EMAIL);
     }
 
+    CrawlingUserStructure(String PERM, String ID, String NICK, String EMAIL) {
+        setPERM(PERM);
+        setID(ID);
+        setNICK(NICK);
+        setEMAIL(EMAIL);
+    }
+
 
     public String getID() {
         return ID;
@@ -385,12 +392,14 @@ class MentorReplyAdapter extends BaseAdapter {
 class MentorRequestItem  {
     private String Id;
     private String Date;
-    private String Score;
+    private String Ans1;
+    private String Ans2;
 
-    MentorRequestItem(String Id, String Date, String Score) {
+    MentorRequestItem(String Id, String Date, String Ans1, String Ans2) {
         setId(Id);
         setDate(Date);
-        setScore(Score);
+        setAns1(Ans1);
+        setAns2(Ans2);
     }
 
     public String getId() {
@@ -409,12 +418,18 @@ class MentorRequestItem  {
         Date = date;
     }
 
-    public String getScore() {
-        return Score;
+    public String getAns1() { return Ans1; }
+
+    public void setAns1(String ans1) {
+        Ans1 = ans1;
     }
 
-    public void setScore(String score) {
-        Score = score;
+    public String getAns2() {
+        return Ans2;
+    }
+
+    public void setAns2(String ans2) {
+        Ans2 = ans2;
     }
 }
 
@@ -453,13 +468,15 @@ class MentorRequestAdapter extends BaseAdapter {
 
         TextView UserId = (TextView) convertView.findViewById(R.id.RequestUserId) ;
         TextView Date = (TextView) convertView.findViewById(R.id.RequestDate) ;
-        TextView Score = (TextView) convertView.findViewById(R.id.RequestScore) ;
+        TextView Ans1 = (TextView) convertView.findViewById(R.id.RequestAns1) ;
+        TextView Ans2 = (TextView) convertView.findViewById(R.id.RequestAns2) ;
 
         MentorRequestItem listViewItem = listViewItemList.get(position);
 
         UserId.setText(listViewItem.getId());
         Date.setText(listViewItem.getDate());
-        Score.setText(listViewItem.getScore());
+        Ans1.setText(listViewItem.getAns1());
+        Ans2.setText(listViewItem.getAns2());
 
         ImageView AcceptImage = (ImageView)convertView.findViewById(R.id.RequestAcceptImage);
         AcceptImage.setTag(listViewItem.getId());
@@ -470,15 +487,13 @@ class MentorRequestAdapter extends BaseAdapter {
                 String Id = String.valueOf(view.getTag());
                 ((MainActivity)MainActivity.context_main).w.acceptMentorPerm(Id, "1");
 
-                Toast.makeText(null, "승인되었습니다", Toast.LENGTH_SHORT).show();
-
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-                ((MentorManagementActivity)MentorManagementActivity.context_main).reset();
+//                ((MentorManagementActivity)MentorManagementActivity.context_main).reset();
             }
         });
 
@@ -491,7 +506,6 @@ class MentorRequestAdapter extends BaseAdapter {
             public void onClick(View view) {
                 String Id = String.valueOf(view.getTag());
                 ((MainActivity)MainActivity.context_main).w.acceptMentorPerm(Id, "0");
-                Toast.makeText(null, "거절되었습니다.", Toast.LENGTH_SHORT).show();
 
                 try {
                     Thread.sleep(500);
@@ -499,15 +513,115 @@ class MentorRequestAdapter extends BaseAdapter {
                     e.printStackTrace();
                 }
 
-                ((MentorManagementActivity)MentorManagementActivity.context_main).reset();
+//                ((MentorManagementActivity)MentorManagementActivity.context_main).reset();
             }
         });
 
         return convertView;
     }
 
-    public void addItem(String Id, String Date, String Score) {
-        MentorRequestItem item = new MentorRequestItem(Id, Date, Score);
+    public void addItem(String Id, String Date, String Ans1, String Ans2) {
+        MentorRequestItem item = new MentorRequestItem(Id, Date, Ans1, Ans2);
+        listViewItemList.add(item);
+    }
+}
+
+class MentorRankItem {
+    private String No;
+    private String Author;
+    private String Reply;
+    private String Accept;
+
+    MentorRankItem(String No, String Author, String Reply, String Accept) {
+        setNo(No);
+        setAuthor(Author);
+        setAccept(Accept);
+        setReply(Reply);
+    }
+
+    public String getNo() {
+        return No;
+    }
+
+    public void setNo(String no) {
+        No = no;
+    }
+
+    public String getAuthor() {
+        return Author;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
+    }
+
+    public String getReply() {
+        return Reply;
+    }
+
+    public void setReply(String reply) {
+        Reply = reply;
+    }
+
+    public String getAccept() {
+        return Accept;
+    }
+
+    public void setAccept(String accept) {
+        Accept = accept;
+    }
+}
+
+class MentorRankAdapter extends BaseAdapter {
+    private ArrayList<MentorRankItem> listViewItemList = new ArrayList<>();
+
+    // Constructor
+    public MentorRankAdapter() {
+
+    }
+
+    @Override
+    public int getCount() {
+        return listViewItemList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return listViewItemList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos = position;
+        final Context context = parent.getContext();
+
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.content_mentor_ranking, parent, false);
+        }
+
+        TextView Id = (TextView) convertView.findViewById(R.id.mentor_id) ;
+        TextView No = (TextView) convertView.findViewById(R.id.mentor_no) ;
+        TextView Reply = (TextView) convertView.findViewById(R.id.mentor_reply) ;
+        TextView Accept = (TextView) convertView.findViewById(R.id.mentor_reply_accept) ;
+
+        MentorRankItem listViewItem = listViewItemList.get(position);
+
+        Id.setText(listViewItem.getAuthor());
+        No.setText(listViewItem.getNo());
+        Reply.setText(listViewItem.getReply());
+        Accept.setText(listViewItem.getAccept());
+
+        return convertView;
+    }
+
+    public void addItem(String No, String Author, String Reply, String Accept) {
+        MentorRankItem item = new MentorRankItem(No, Author, Reply, Accept);
         listViewItemList.add(item);
     }
 }

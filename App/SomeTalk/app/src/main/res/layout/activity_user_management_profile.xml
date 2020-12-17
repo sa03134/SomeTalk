@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserManagementProfile">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/sdswagger"
+        android:text="사용자 정보 변경 [관리자 모드]"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp" />
+
+
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/bottomBar1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="2dp"
+                android:scrollbars="vertical"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/border"/>
+
+            <LinearLayout
+                android:layout_width="342dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:orientation="vertical"
+                android:background="@drawable/roundlayout">
+
+                <TextView
+                    android:id="@+id/permission_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="Permission"
+
+                    android:textSize="16sp" />
+
+
+                <Spinner
+                    android:id="@+id/permission_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+<!--                <EditText-->
+<!--                    android:id="@+id/permission_manage"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_marginLeft="15dp"-->
+<!--                    android:layout_marginRight="15dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:editable="false"-->
+<!--                    android:fontFamily="@font/sdswagger"-->
+<!--                    android:hint=""-->
+<!--                    android:inputType="textCapWords"-->
+<!--                    android:padding="10dp" />-->
+
+                <TextView
+                    android:id="@+id/nickname_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="Nick name"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/nickname_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:hint=""
+                    android:inputType="textCapWords"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/id_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="ID"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/id_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:inputType="textCapWords"
+                    android:enabled="false"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/pw_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="PW"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/password_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:hint=""
+                    android:inputType="textCapWords"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/email_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:text="E-mail"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/email_manage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:hint=""
+                    android:inputType="textCapWords"
+                    android:padding="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/cancel_manage_account"
+                    android:layout_width="124dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="50dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:onClick="cancelEdit"
+                    android:src="@drawable/cancel_btn" />
+
+                <ImageView
+                    android:id="@+id/edit_manage_account"
+                    android:layout_width="124dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/sdswagger"
+                    android:onClick="editAccount"
+                    android:src="@drawable/edit_btn" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

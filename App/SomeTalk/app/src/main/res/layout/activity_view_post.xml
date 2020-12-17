@@ -105,13 +105,41 @@
 
                             <TextView
                                 android:id="@+id/AuthorText"
-                                android:layout_width="379dp"
+                                android:layout_width="280dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:layout_marginLeft="5dp"
                                 android:gravity="center_vertical"
                                 android:fontFamily="@font/sdswagger"
                                 android:text="Author" />
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/like_btn"
+                                />
+
+                            <TextView
+                                android:id="@+id/like_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#2f5597"
+                                />
+
+                            <ImageView
+                                android:layout_marginTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/unlike_btn"/>
+
+                            <TextView
+                                android:id="@+id/unlike_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="#c55a11"
+                                />
 
                             <TextView
                                 android:id="@+id/DateTimeText"
@@ -121,6 +149,26 @@
                                 android:fontFamily="@font/sdswagger"
                                 android:gravity="center_vertical"
                                 android:text="time" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="41dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="80dp"
+                                android:layout_height="match_parent"
+                                android:onClick="likePost"
+                                android:src="@drawable/like_btn2"/>
+                            <ImageView
+                                android:layout_marginLeft="5dp"
+                                android:layout_width="80dp"
+                                android:layout_height="match_parent"
+                                android:onClick="unlikePost"
+                                android:src="@drawable/unlike_btn2"/>
                         </LinearLayout>
 
                     </LinearLayout>

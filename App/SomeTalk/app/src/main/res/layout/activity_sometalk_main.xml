@@ -28,45 +28,62 @@
             android:orientation="vertical">
 
 
-            <LinearLayout
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="95dp"-->
+<!--                android:orientation="horizontal">-->
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="95dp"
-                android:orientation="horizontal">
+                android:rowCount="1"
+                android:columnCount="5">
 
 
                 <ImageView
                     android:id="@+id/imageView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="82dp"
                     android:layout_weight="1"
                     android:onClick="popularBoard"
                     app:srcCompat="@drawable/hot" />
 
                 <ImageView
                     android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="82dp"
                     android:layout_weight="1"
+                    android:onClick="gotoMentorRank"
                     app:srcCompat="@drawable/metorranking" />
 
                 <ImageView
                     android:id="@+id/imageView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="90dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_width="75dp"
+                    android:layout_height="83dp"
                     android:onClick="gotoUserProfile"
                     android:layout_weight="1"
                     app:srcCompat="@drawable/profile" />
 
                 <ImageView
                     android:id="@+id/imageView15"
-                    android:layout_width="wrap_content"
+                    android:layout_width="80dp"
                     android:layout_height="90dp"
                     android:layout_weight="1"
                     android:onClick="gotoWriteBoard"
                     app:srcCompat="@drawable/posting" />
-            </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:onClick="gotoLogout"
+                    app:srcCompat="@drawable/logout_btn" />
+            </GridLayout>
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -163,16 +180,18 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/admin_layout"
                 android:layout_width="match_parent"
                 android:layout_height="189dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/roundlayout"
+                android:visibility="invisible"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/admin_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -194,10 +213,11 @@
                     android:textSize="2dp" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/admin_dashboard"
                     android:layout_width="102dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
+                    android:onClick="gotoDashboard"
                     app:srcCompat="@drawable/dash_board" />
 
                 <TextView
@@ -215,7 +235,8 @@
                     android:layout_width="102dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
-                    app:srcCompat="@drawable/post_management" />
+                    app:srcCompat="@drawable/post_management"
+                    android:onClick="gotoManagePostBoard"/>
 
                 <TextView
                     android:id="@+id/bottomBar8"
@@ -232,7 +253,8 @@
                     android:layout_width="102dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
-                    app:srcCompat="@drawable/user_management" />
+                    app:srcCompat="@drawable/user_management"
+                    android:onClick="gotoManageUser"/>
 
 
 

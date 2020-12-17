@@ -95,6 +95,13 @@ tools:context=".MentorManagementActivity">
                     android:text="point"
                     android:textSize="16sp" />
 
+<!--                <ImageView-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="35dp"-->
+<!--                    android:src="@drawable/point_use_btn"-->
+<!--                    android:onClick="gotoAdBoard"-->
+<!--                    />-->
+
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="0dp"

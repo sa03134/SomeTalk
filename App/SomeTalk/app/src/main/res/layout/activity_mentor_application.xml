@@ -122,6 +122,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="10dp"
+            android:onClick="cancel_RequestMentorPerm"
             android:src="@drawable/cancel_btn"
             />
 
@@ -133,6 +134,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
+            android:onClick="submitMentorPerm"
             android:src="@drawable/ok_button" />
 
 

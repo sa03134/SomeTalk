@@ -112,6 +112,8 @@ public class ViewPostActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.AuthorText)).setText(CBI.getAuthor());
         ((TextView)findViewById(R.id.DateTimeText)).setText(CBI.getDatetime());
         ((TextView)findViewById(R.id.ContentText)).setText(CBI.getContent() + "\n");
+        ((TextView)findViewById(R.id.like_text)).setText(" " + CBI.getLike() + " ");
+        ((TextView)findViewById(R.id.unlike_text)).setText(" " + CBI.getUnLike() + " ");
 
 
         // Comments
@@ -246,5 +248,29 @@ public class ViewPostActivity extends AppCompatActivity {
             Toast.makeText(this, "답변을 작성해주세요.", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void unlikePost(View view) {
+        ((MainActivity)MainActivity.context_main).w.setUnlikePost(Type, No);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finish();
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
+
+    public void likePost(View view) {
+        ((MainActivity)MainActivity.context_main).w.setLikePost(Type, No);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        finish();
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 }

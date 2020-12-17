@@ -23,6 +23,8 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".MentorRanking"></activity>
         <activity android:name=".Dashboard" />
+        <activity android:name=".PostManagementEdit" />
+        <activity android:name=".UserManagementProfile" />
         <activity android:name=".PostManagement" />
         <activity android:name=".UserManagement" />
         <activity android:name=".MentorApplication" />

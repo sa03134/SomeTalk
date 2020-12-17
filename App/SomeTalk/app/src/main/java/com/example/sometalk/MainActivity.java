@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public void clickLogin(View v) {
         String email = ((EditText)findViewById(R.id.et_id)).getText().toString(); // id 입력란 : "admin";
         String password = ((EditText)findViewById(R.id.et_pass)).getText().toString();// pw 입력란 : "sometalk";
-        email = "test";
+
+        email = "test2";
         password = "1";
 //        email = "admin";
 //        password = "sometalk";

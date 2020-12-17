@@ -114,7 +114,7 @@ public class MentorManagementActivity extends AppCompatActivity {
 
         for(int i = 0; i < ((MainActivity)MainActivity.context_main).w.CUT.Requests.length; ++i) {
             MentorRequestItem Request = ((MainActivity) MainActivity.context_main).w.CUT.Requests[i];
-            request_adapter.addItem(Request.getId(), Request.getDate(), Request.getScore());
+            request_adapter.addItem(Request.getId(), Request.getDate(), Request.getAns1(), Request.getAns2());
         }
 
         setListViewHeightBasedOnChildrenReply(reply_listview);

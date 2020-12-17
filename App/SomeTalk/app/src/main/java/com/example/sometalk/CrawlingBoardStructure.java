@@ -12,8 +12,8 @@ class CrawlingBoardItem {
     private String Datetime ; // 게시글 작성 시간
     private String Author ;
     private String Content;
-    private int Like;
-    private int UnLike;
+    private String Like;
+    private String UnLike;
     private String Accept;
 
     CrawlingBoardItem(String Title, String Author, String DateTime) {
@@ -76,19 +76,19 @@ class CrawlingBoardItem {
         Content = content;
     }
 
-    public int getLike() {
+    public String getLike() {
         return Like;
     }
 
-    public void setLike(int like) {
+    public void setLike(String like) {
         Like = like;
     }
 
-    public int getUnLike() {
+    public String getUnLike() {
         return UnLike;
     }
 
-    public void setUnLike(int unLike) {
+    public void setUnLike(String unLike) {
         UnLike = unLike;
     }
 
@@ -98,5 +98,41 @@ class CrawlingBoardItem {
 
     public void setAccept(String accept) {
         Accept = accept;
+    }
+}
+
+class DashboardItem {
+    private String countUser;
+    private String countPost;
+    private String countAccept;
+
+    DashboardItem(String countUser, String countPost, String countAccept) {
+        setCountUser(countUser);
+        setCountPost(countPost);
+        setCountAccept(countAccept);
+    }
+
+    public String getCountUser() {
+        return countUser;
+    }
+
+    public void setCountUser(String countUser) {
+        this.countUser = countUser;
+    }
+
+    public String getCountPost() {
+        return countPost;
+    }
+
+    public void setCountPost(String countPost) {
+        this.countPost = countPost;
+    }
+
+    public String getCountAccept() {
+        return countAccept;
+    }
+
+    public void setCountAccept(String countAccept) {
+        this.countAccept = countAccept;
     }
 }

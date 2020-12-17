@@ -23,6 +23,11 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
     public boolean isReplyPerm = false;
     public boolean isAccept = false;
 
+    public CrawlingManagementPostItem Manage_Posts[];
+    public CrawlingManagementEditPostItem Manage_Post = null;
+
+    public DashboardItem Dashboard = null;
+
 
     CrawlingBoardTask(Map<String, String> UserCookie) {
         this.UserCookie = UserCookie;
@@ -192,9 +197,12 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     String Date = e.select("#Date").text();
                     String Content = e.select("#Content").text();
                     String Title = e.select("#Title").text();
+                    String Likes = e.select("#Likes").val();
 
                     RecentPost = new CrawlingBoardItem(Title, Author, Date);
                     RecentPost.setContent(Content);
+                    RecentPost.setLike(Likes.split("_")[0]);
+                    RecentPost.setUnLike(Likes.split("_")[1]);
 
                     Elements es = doc.select("#CommentContent");
                     Comments = new CommentListItem[es.size()];
@@ -437,6 +445,167 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                             .method(Connection.Method.GET)
                             .timeout(5000)
                             .execute();
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "setUnlikePost" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/UnLikePost")
+                            .ignoreContentType(true)
+                            .data("Type", voids[1],
+                                    "No", voids[2]
+                            )
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+                }catch (IOException e) {
+
+                }
+                break;
+
+            case "setLikePost" :
+                try {
+                        Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/LikePost")
+                                .ignoreContentType(true)
+                                .data("Type", voids[1],
+                                        "No", voids[2]
+                                )
+                                .userAgent(userAgent)
+                                .cookies(UserCookie)
+                                .method(Connection.Method.GET)
+                                .timeout(5000)
+                                .execute();
+                }catch (IOException e) {
+
+                }
+                break;
+
+            case "getManageBoardPage" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/Manage/board")
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+
+
+                    Document doc = res.parse();
+
+                    Elements e = doc.select("#boardRow");
+
+                    Manage_Posts = new CrawlingManagementPostItem[e.size()];
+
+                    for(int i = 0; i < e.size(); ++i) {
+                        Manage_Posts[i] = new CrawlingManagementPostItem(e.get(i).select("#Title > a").attr("href"),
+                                                                         e.get(i).select("#No").text(),
+                                                                         e.get(i).select("#Category").text(),
+                                                                         e.get(i).select("#Author").text(),
+                                                                         e.get(i).select("#Title").text(),
+                                                                         e.get(i).select("#Date").text());
+                    }
+
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "getPostFromAdmin" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528" + voids[1])
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+
+                    Document doc = res.parse();
+                    Manage_Post = new CrawlingManagementEditPostItem(voids[1], doc.select("#Title").val(), doc.select("#Content").text());
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "setPostFromAdmin" :
+                body =  "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"Title\"\n" +
+                        "\n" +
+                        voids[2] + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"Content\"\n" +
+                        "\n" +
+                        voids[3] + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"Type\"\n" +
+                        "\n" +
+                        voids[1].split("=")[1].split("&")[0] + "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                        "Content-Disposition: form-data; name=\"No\"\n" +
+                        "\n" +
+                        voids[1].split("=")[2] + "\n" +
+                        "\n" +
+                        "\n" +
+                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V--\n";
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528" + voids[1])
+                            .ignoreContentType(true)
+                            .header("Content-Type", "multipart/form-data; boundary=----WebKitFormBoundary3Fc9KrOBytBNQJ6V")
+                            .header("Accept-Encoding", "gzip, deflate")
+                            .header("Accept-Language", "en-US,en;q=0.9,ko;q=0.8")
+                            .userAgent(userAgent)
+                            .referrer("http://www.qerogram.kro.kr:41528/Manage/")
+                            .requestBody(body)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.POST)
+                            .timeout(5000)
+                            .execute();
+
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "deletePostFromAdmin" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/" + voids[1])
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .referrer("http://www.qerogram.kro.kr:41528/Manage/")
+                            .data("Type", voids[1].split("=")[1].split("&")[0],
+                                    "No", voids[1].split("=")[2])
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+
+                } catch (IOException e) {
+
+                }
+                break;
+
+            case "getDashboard" :
+                try {
+                    Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/Manage")
+                            .ignoreContentType(true)
+                            .userAgent(userAgent)
+                            .cookies(UserCookie)
+                            .method(Connection.Method.GET)
+                            .timeout(5000)
+                            .execute();
+
+                    Document doc = res.parse();
+
+                    Dashboard = new DashboardItem(doc.selectFirst("#countUser").text(),
+                    doc.selectFirst("#countPost").text(),
+                    doc.selectFirst("#countAccept").text());
+
+
                 } catch (IOException e) {
 
                 }

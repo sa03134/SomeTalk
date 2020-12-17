@@ -214,7 +214,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Bitmap img = BitmapFactory.decodeStream(in);
                     imageView.setImageBitmap(img);
                     in.close();
-                    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/profile.jpeg";
+                    String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/.profile.jpeg";
 
                     FileOutputStream out = new FileOutputStream(path);
                     img.compress(Bitmap.CompressFormat.JPEG, 100, out);
@@ -242,8 +242,6 @@ public class ProfileActivity extends AppCompatActivity {
     public void gotoMentorFunction(View view) {
         String Perm = ((MainActivity) MainActivity.context_main).w.CUT.User.getPERM();
         if (Perm.equals("일반 사용자")) {
-            ((MainActivity) MainActivity.context_main).w.requestMentorPerm();
-
             Intent intent = new Intent(getApplicationContext(), MentorApplication.class);
             startActivityForResult(intent, 1);
         }

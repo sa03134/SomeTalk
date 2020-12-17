@@ -128,6 +128,16 @@ public class WebLogic {
         CBT.execute("acceptReply", pKey);
     }
 
+    public void setUnlikePost(String Type, String No) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("setUnlikePost", Type, No);
+    }
+
+    public void setLikePost(String Type, String No) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("setLikePost", Type, No);
+    }
+
     /////////////////////////////////////
     public void register(String id, String pw, String nick, String email) {
         CUT = new CrawlingUserTask();
@@ -149,9 +159,9 @@ public class WebLogic {
         CUT.execute("setPicture", data);
     }
 
-    public void requestMentorPerm() {
+    public void requestMentorPerm(String ans1, String ans2) {
         CUT = new CrawlingUserTask(UserCookie);
-        CUT.execute("requestMentorPerm");
+        CUT.execute("requestMentorPerm", ans1, ans2);
     }
 
     public void acceptMentorPerm(String Id, String Request_Code) {
@@ -164,5 +174,59 @@ public class WebLogic {
     public void getMentorProfile() {
         CUT = new CrawlingUserTask(UserCookie);
         CUT.execute("getMentorProfile");
+    }
+
+    public void setAd(String Path, String Content) {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("setAd", Path, Content);
+    }
+
+    /////////////////////////////////
+
+    public void getManageBoardPage() {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("getManageBoardPage");
+    }
+
+    public void getManageUserPage() {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("getManageUserPage");
+    }
+
+    public void getProfileFromAdmin(String Id) {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("getProfileFromAdmin", Id);
+    }
+
+    public void setProfileFromAdmin(String Nick, String Perm, String Password, String Email, String Id) {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("setProfileFromAdmin", Nick, Perm, Password, Email, Id);
+    }
+
+    public void getPostFromAdmin(String Link) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("getPostFromAdmin", Link);
+    }
+
+    public void setPostFromAdmin(String Link, String Title, String Content) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("setPostFromAdmin", Link, Title, Content);
+    }
+
+    public void deletePostFromAdmin(String Link) {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("deletePostFromAdmin", Link);
+    }
+
+    /////////////////////////////////////////////
+    public void getMentorRanking() {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("getMentorRanking");
+    }
+
+    public void getDashboard() {
+        CBT = new CrawlingBoardTask(UserCookie);
+        CBT.execute("getDashboard");
+
     }
 }
