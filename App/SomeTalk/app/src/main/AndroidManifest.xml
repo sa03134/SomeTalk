@@ -21,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SomeTalk.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".PostManagement"></activity>
+        <activity android:name=".MentorRanking"></activity>
+        <activity android:name=".Dashboard" />
+        <activity android:name=".PostManagement" />
         <activity android:name=".UserManagement" />
         <activity android:name=".MentorApplication" />
         <activity android:name=".MentorManagementActivity" />
