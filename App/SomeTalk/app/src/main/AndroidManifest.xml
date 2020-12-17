@@ -21,9 +21,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SomeTalk.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UserManagement"></activity>
+        <activity android:name=".PostManagement"></activity>
+        <activity android:name=".UserManagement" />
         <activity android:name=".MentorApplication" />
-        <activity android:name=".MentorManagementActivity"></activity>
+        <activity android:name=".MentorManagementActivity" />
         <activity android:name=".Board_Love" />
         <activity android:name=".Board_Some" />
         <activity android:name=".Mentor_Ad" />
