@@ -1,6 +1,8 @@
 package com.example.sometalk;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.provider.Telephony;
 import android.util.Log;
 
 import org.jsoup.Connection;
@@ -18,32 +20,36 @@ import java.util.concurrent.ExecutionException;
 public class WebLogic {
     private String password;
     private String email;
-    public UserLoginTask mAuthTask = null;
     public Map<String, String> UserCookie = null;
     public CrawlingBoardTask CBT = null;
+    public CrawlingUserTask CUT = null;
 
     WebLogic(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
+    WebLogic() {}
+
     public String getPassword() { return password; }
     public String getEmail() { return email; }
 
     public boolean attemptLogin() {
-        if (mAuthTask != null) return true;
+        if (CUT != null) return true;
 
         boolean cancel = false;
 
         if(!cancel) {
-            mAuthTask = new UserLoginTask(email, password);
+//            mAuthTask = new UserLoginTask(email, password);
+            CUT = new CrawlingUserTask();
             try {
-                UserCookie = mAuthTask.execute((Void) null).get();
+                UserCookie = CUT.execute("login", email, password).get();
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             String arg = UserCookie.toString();
             if(arg.length() < 30) return false;
 
@@ -51,8 +57,6 @@ public class WebLogic {
         }
         return true;
     }
-
-
 
     public void getPopularPage() {
         CBT = new CrawlingBoardTask(UserCookie);
@@ -84,9 +88,9 @@ public class WebLogic {
         CBT.execute("getPost", Link);
     }
 
-    public void setPost(String Board_Type, String Category, String Title, String Content) {
+    public void setPost(String Board_Type, String Title, String Content) {
         CBT = new CrawlingBoardTask(UserCookie);
-        CBT.execute("setPost", Board_Type, Category, Title, Content);
+        CBT.execute("setPost", Board_Type, Title, Content);
     }
 
     public void setComment(String Board_Type, String No, String Comment) {
@@ -122,5 +126,43 @@ public class WebLogic {
     public void acceptReply(String pKey) {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("acceptReply", pKey);
+    }
+
+    /////////////////////////////////////
+    public void register(String id, String pw, String nick, String email) {
+        CUT = new CrawlingUserTask();
+        CUT.execute("register", id, pw, nick, email);
+    }
+
+    public void getProfile() {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("getProfile");
+    }
+
+    public void setProfile(String Permission, String Id, String Nickname, String Password, String Email) {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("setProfile", Permission, Id, Nickname, Password, Email);
+    }
+
+    public void setPicture(String data) {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("setPicture", data);
+    }
+
+    public void requestMentorPerm() {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("requestMentorPerm");
+    }
+
+    public void acceptMentorPerm(String Id, String Request_Code) {
+        // Request_Code == "1" : Accept
+        // Request_Code == "0" : Deny
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("acceptMentorPerm", Id, Request_Code);
+    }
+
+    public void getMentorProfile() {
+        CUT = new CrawlingUserTask(UserCookie);
+        CUT.execute("getMentorProfile");
     }
 }

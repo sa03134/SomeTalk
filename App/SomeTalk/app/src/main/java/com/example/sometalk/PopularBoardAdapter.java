@@ -58,14 +58,23 @@ public class PopularBoardAdapter extends BaseAdapter {
         Content.setText(listViewItem.getContent());
         Title.setText(listViewItem.getTitle());
 
+        if(listViewItem.getAccept() != "") {
+            float scale = convertView.getResources().getDisplayMetrics().density;
+            ImageView acceptImg = convertView.findViewById(R.id.acceptImage);
+            acceptImg.setVisibility(View.VISIBLE);
+            acceptImg.getLayoutParams().height = (int)(20 * scale);
+            acceptImg.getLayoutParams().width = (int)(20 * scale);
+        }
+
         return convertView;
     }
 
-    public void addItem(String Title, String Content) {
+    public void addItem(String Title, String Content, String Accept) {
         PopularBoardItem item = new PopularBoardItem();
 
         item.setTitle(Title);
         item.setContent(Content);
+        item.setAccept(Accept);
 
         listViewItemList.add(item);
     }
@@ -110,14 +119,23 @@ class TeenBoardAdapter extends BaseAdapter {
         Content.setText(listViewItem.getContent());
         Title.setText(listViewItem.getTitle());
 
+        if(listViewItem.getAccept() != "") {
+            float scale = convertView.getResources().getDisplayMetrics().density;
+            ImageView acceptImg = convertView.findViewById(R.id.acceptImage);
+            acceptImg.setVisibility(View.VISIBLE);
+            acceptImg.getLayoutParams().height = (int)(20 * scale);
+            acceptImg.getLayoutParams().width = (int)(20 * scale);
+        }
+
         return convertView;
     }
 
-    public void addItem(String Title, String Content) {
+    public void addItem(String Title, String Content, String Accept) {
         TeenBoardItem item = new TeenBoardItem();
 
         item.setTitle(Title);
         item.setContent(Content);
+        item.setAccept(Accept);
 
         listViewItemList.add(item);
     }
@@ -160,14 +178,23 @@ class TwentyBoardAdapter extends BaseAdapter {
         Content.setText(listViewItem.getContent());
         Title.setText(listViewItem.getTitle());
 
+        if(listViewItem.getAccept() != "") {
+            float scale = convertView.getResources().getDisplayMetrics().density;
+            ImageView acceptImg = convertView.findViewById(R.id.acceptImage);
+            acceptImg.setVisibility(View.VISIBLE);
+            acceptImg.getLayoutParams().height = (int)(20 * scale);
+            acceptImg.getLayoutParams().width = (int)(20 * scale);
+        }
+
         return convertView;
     }
 
-    public void addItem(String Title, String Content) {
+    public void addItem(String Title, String Content, String Accept) {
         TwentyBoardItem item = new TwentyBoardItem();
 
         item.setTitle(Title);
         item.setContent(Content);
+        item.setAccept(Accept);
 
         listViewItemList.add(item);
     }
@@ -210,14 +237,23 @@ class SomeBoardAdapter extends BaseAdapter {
         Content.setText(listViewItem.getContent());
         Title.setText(listViewItem.getTitle());
 
+        if(listViewItem.getAccept() != "") {
+            float scale = convertView.getResources().getDisplayMetrics().density;
+            ImageView acceptImg = convertView.findViewById(R.id.acceptImage);
+            acceptImg.setVisibility(View.VISIBLE);
+            acceptImg.getLayoutParams().height = (int)(20 * scale);
+            acceptImg.getLayoutParams().width = (int)(20 * scale);
+        }
+
         return convertView;
     }
 
-    public void addItem(String Title, String Content) {
+    public void addItem(String Title, String Content, String Accept) {
         SomeBoardItem item = new SomeBoardItem();
 
         item.setTitle(Title);
         item.setContent(Content);
+        item.setAccept(Accept);
 
         listViewItemList.add(item);
     }
@@ -260,14 +296,23 @@ class LoveBoardAdapter extends BaseAdapter {
         Content.setText(listViewItem.getContent());
         Title.setText(listViewItem.getTitle());
 
+        if(listViewItem.getAccept() != "") {
+            float scale = convertView.getResources().getDisplayMetrics().density;
+            ImageView acceptImg = convertView.findViewById(R.id.acceptImage);
+            acceptImg.setVisibility(View.VISIBLE);
+            acceptImg.getLayoutParams().height = (int)(20 * scale);
+            acceptImg.getLayoutParams().width = (int)(20 * scale);
+        }
+
         return convertView;
     }
 
-    public void addItem(String Title, String Content) {
+    public void addItem(String Title, String Content, String Accept) {
         LoveBoardItem item = new LoveBoardItem();
 
         item.setTitle(Title);
         item.setContent(Content);
+        item.setAccept(Accept);
 
         listViewItemList.add(item);
     }
@@ -313,7 +358,7 @@ class CommentListAdapter extends BaseAdapter {
         Date.setText(listViewItem.getDate());
 
         if(listViewItem.getPkey() != null && listViewItem.getPkey() != "") {
-            Button DeleteComment = (Button)convertView.findViewById(R.id.deleteCommentButton);
+            ImageView DeleteComment = (ImageView)convertView.findViewById(R.id.deleteCommentButton);
             DeleteComment.setVisibility(View.VISIBLE);
             DeleteComment.setEnabled(true);
             DeleteComment.setTag(listViewItem.getPkey());
@@ -404,7 +449,7 @@ class ReplyListAdapter extends BaseAdapter {
         Boolean owner = ((MainActivity)MainActivity.context_main).w.CBT.RecentPost.getAuthor().equals((((MainActivity)MainActivity.context_main).w.getEmail()));
 
         if(owner && !((MainActivity)MainActivity.context_main).w.CBT.isAccept) {
-            Button AcceptReply = (Button)convertView.findViewById(R.id.acceptReplyButton);
+            ImageView AcceptReply = (ImageView)convertView.findViewById(R.id.acceptReplyButton);
             AcceptReply.setVisibility(View.VISIBLE);
             AcceptReply.setEnabled(true);
             AcceptReply.setTag(listViewItem.getPkey() + "&Author=" + cmpString);
@@ -428,7 +473,7 @@ class ReplyListAdapter extends BaseAdapter {
             || ((MainActivity)MainActivity.context_main).w.getEmail().equals("admin"))
                 && !((MainActivity)MainActivity.context_main).w.CBT.isAccept) {
             // 채택이 안된 경우에, 직접 작성한 답변 삭제 가능.
-            Button DeleteReply = (Button)convertView.findViewById(R.id.deleteReplyButton);
+            ImageView DeleteReply = (ImageView)convertView.findViewById(R.id.deleteReplyButton);
             DeleteReply.setVisibility(View.VISIBLE);
             DeleteReply.setEnabled(true);
             DeleteReply.setTag(listViewItem.getPkey());

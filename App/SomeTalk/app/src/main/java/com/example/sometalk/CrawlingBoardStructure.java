@@ -14,6 +14,7 @@ class CrawlingBoardItem {
     private String Content;
     private int Like;
     private int UnLike;
+    private String Accept;
 
     CrawlingBoardItem(String Title, String Author, String DateTime) {
         setTitle(Title);
@@ -21,9 +22,7 @@ class CrawlingBoardItem {
         setDatetime(DateTime);
     }
 
-    public String getLink() {
-        return Link;
-    }
+    public String getLink() { return Link; }
 
     public void setLink(String link) {
         Link = link;
@@ -91,5 +90,13 @@ class CrawlingBoardItem {
 
     public void setUnLike(int unLike) {
         UnLike = unLike;
+    }
+
+    public String getAccept() {
+        return Accept;
+    }
+
+    public void setAccept(String accept) {
+        Accept = accept;
     }
 }

@@ -133,12 +133,13 @@
             android:padding="10dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/reg_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/sdswagger"
             android:text="가입하기"
+            android:onClick="register"
             android:textSize="18sp" />
 
     </LinearLayout>

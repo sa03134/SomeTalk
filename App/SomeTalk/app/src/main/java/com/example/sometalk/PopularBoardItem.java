@@ -9,6 +9,7 @@ class BoardItem {
     private String Content;
     private int Like;
     private int UnLike;
+    private String Accept;
 
 
     public int getUnLike() {
@@ -73,6 +74,14 @@ class BoardItem {
 
     public void setLike(int like) {
         Like = like;
+    }
+
+    public String getAccept() {
+        return Accept;
+    }
+
+    public void setAccept(String accept) {
+        Accept = accept;
     }
 }
 

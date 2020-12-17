@@ -38,4 +38,15 @@ public class SometalkMain extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Board_Love.class);
         startActivity(intent);
     }
+
+    public void gotoWriteBoard(View view) {
+        Intent intent = new Intent(getApplicationContext(), WritePostActivity.class);
+        intent.putExtra("Type", "1");
+        startActivityForResult(intent, 1);
+    }
+
+    public void gotoUserProfile(View view) {
+        Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
+        startActivity(intent);
+    }
 }

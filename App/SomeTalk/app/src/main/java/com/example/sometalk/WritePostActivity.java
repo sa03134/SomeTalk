@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class WritePostActivity extends AppCompatActivity {
     private String Board_Type = "";
-    private String Category = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,9 +24,10 @@ public class WritePostActivity extends AppCompatActivity {
         Spinner spinner = ((Spinner)findViewById(R.id.Category));
 
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Category 1");
-        arrayList.add("Category 2");
-        arrayList.add("Category 3");
+        arrayList.add("10대 질문");
+        arrayList.add("20대 질문");
+        arrayList.add("썸타는 중");
+        arrayList.add("연애 중");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -38,7 +38,7 @@ public class WritePostActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Category = parent.getItemAtPosition(position).toString();
+                Board_Type = String.valueOf(position);
             }
             @Override
             public void onNothingSelected(AdapterView <?> parent) {
@@ -50,7 +50,7 @@ public class WritePostActivity extends AppCompatActivity {
         String Title = ((EditText)findViewById(R.id.Title)).getText().toString();
         String Content = ((EditText)findViewById(R.id.Content)).getText().toString();
 
-        ((MainActivity)MainActivity.context_main).w.setPost(Board_Type, Category, Title, Content);
+        ((MainActivity)MainActivity.context_main).w.setPost(String.valueOf(Integer.parseInt(Board_Type) + 1), Title, Content);
 
         try {
             Thread.sleep(500);

@@ -2,43 +2,34 @@ package com.example.sometalk;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URL;
+import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity {
-    UserPostAdapter post_adapter;
-    ListView post_listview;
+public class MentorManagementActivity extends AppCompatActivity {
+    MentorReplyAdapter reply_adapter;
+    ListView reply_listview;
 
-    UserCommentAdapter comment_adapter;
-    ListView comment_listview;
+    MentorRequestAdapter request_adapter;
+    ListView request_listview;
 
     ImageView imageView;
     public static Context context_main;
@@ -46,26 +37,34 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_mentor_management);
         context_main = this;
 
         init();
 
-        post_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        reply_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), ViewPostActivity.class);
-                intent.putExtra("Link", ((MainActivity) MainActivity.context_main).w.CUT.Posts[position].getLink());
+                intent.putExtra("Link", ((MainActivity) MainActivity.context_main).w.CUT.Replys[position].getLink());
                 startActivityForResult(intent, 1);
-                post_adapter.notifyDataSetChanged();
+                reply_adapter.notifyDataSetChanged();
             }
         });
-
     }
 
+    void init() {
+        reply_adapter = new MentorReplyAdapter();
+        reply_listview = (ListView) findViewById(R.id.list_reply); // Check
+        reply_listview.setVerticalScrollBarEnabled(false);
+        reply_listview.setAdapter(reply_adapter);
 
-    public void init() {
-        ((MainActivity) MainActivity.context_main).w.getProfile();
+        request_adapter = new MentorRequestAdapter();
+        request_listview = (ListView) findViewById(R.id.list_request_mentor);
+        request_listview.setVerticalScrollBarEnabled(false);
+        request_listview.setAdapter(request_adapter);
+
+        ((MainActivity) MainActivity.context_main).w.getMentorProfile();
 
         try {
             Thread.sleep(500);
@@ -73,26 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        post_adapter = new UserPostAdapter();
-
-        post_listview = (ListView) findViewById(R.id.list_post); // Check
-        post_listview.setVerticalScrollBarEnabled(false);
-
-        post_listview.setAdapter(post_adapter);
-
-        comment_adapter = new UserCommentAdapter();
-
-        comment_listview = (ListView) findViewById(R.id.list_comment); // Check
-        comment_listview.setVerticalScrollBarEnabled(false);
-
-        comment_listview.setAdapter(comment_adapter);
-
-        ((EditText) findViewById(R.id.permission)).setText(((MainActivity) MainActivity.context_main).w.CUT.User.getPERM());
-        ((EditText) findViewById(R.id.permission)).setEnabled(false);
-        ((EditText) findViewById(R.id.edit_nickname)).setText(((MainActivity) MainActivity.context_main).w.CUT.User.getNICK());
-        ((EditText) findViewById(R.id.edit_id)).setText(((MainActivity) MainActivity.context_main).w.CUT.User.getID());
-        ((EditText) findViewById(R.id.edit_password)).setText(((MainActivity) MainActivity.context_main).w.CUT.User.getPW());
-        ((EditText) findViewById(R.id.edit_email)).setText(((MainActivity) MainActivity.context_main).w.CUT.User.getEMAIL());
 
         imageView = findViewById(R.id.User_Profile);
 
@@ -123,21 +102,23 @@ public class ProfileActivity extends AppCompatActivity {
 
         t.start();
 
-        for (int i = 0; i < ((MainActivity) MainActivity.context_main).w.CUT.Posts.length; ++i) {
-            UserPostItem Post = ((MainActivity) MainActivity.context_main).w.CUT.Posts[i];
-            post_adapter.addItem(Post.getLink(), Post.getNo(), Post.getCategory(), Post.getTitle(), Post.getDate());
+        ((TextView)findViewById(R.id.username)).setText(((MainActivity)MainActivity.context_main).w.CUT.Mentor.getID());
+        ((TextView)findViewById(R.id.userpoint)).setText(((MainActivity)MainActivity.context_main).w.CUT.Mentor.getPOINT() + "  ");
+
+        ((TextView)findViewById(R.id.username)).bringToFront();
+
+        for(int i = 0; i < ((MainActivity)MainActivity.context_main).w.CUT.Replys.length; ++i) {
+            MentorReplyItem Reply = ((MainActivity) MainActivity.context_main).w.CUT.Replys[i];
+            reply_adapter.addItem(Reply.getAccept(), Reply.getLink(), Reply.getNo(), Reply.getCategory(), Reply.getContent(), Reply.getDate());
         }
 
-        for (int i = 0; i < ((MainActivity) MainActivity.context_main).w.CUT.Comments.length; ++i) {
-            UserCommentItem Post = ((MainActivity) MainActivity.context_main).w.CUT.Comments[i];
-            comment_adapter.addItem(Post.getNo(), Post.getCategory(), Post.getContent(), Post.getDate());
+        for(int i = 0; i < ((MainActivity)MainActivity.context_main).w.CUT.Requests.length; ++i) {
+            MentorRequestItem Request = ((MainActivity) MainActivity.context_main).w.CUT.Requests[i];
+            request_adapter.addItem(Request.getId(), Request.getDate(), Request.getScore());
         }
-        setListViewHeightBasedOnChildrenPost(post_listview);
-        setListViewHeightBasedOnChildrenComment(comment_listview);
 
-        if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-        }
+        setListViewHeightBasedOnChildrenReply(reply_listview);
+        setListViewHeightBasedOnChildrenRequest(request_listview);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,8 +131,8 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    public static void setListViewHeightBasedOnChildrenPost(@NonNull ListView listView) {
-        UserPostAdapter listAdapter = (UserPostAdapter) listView.getAdapter();
+    public static void setListViewHeightBasedOnChildrenReply(@NonNull ListView listView) {
+        MentorReplyAdapter listAdapter = (MentorReplyAdapter) listView.getAdapter();
 
         int totalHeight = 0;
         for (int i = 0; i < listAdapter.getCount(); i++) {
@@ -166,9 +147,8 @@ public class ProfileActivity extends AppCompatActivity {
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
-
-    public static void setListViewHeightBasedOnChildrenComment(@NonNull ListView listView) {
-        UserCommentAdapter listAdapter = (UserCommentAdapter) listView.getAdapter();
+    public static void setListViewHeightBasedOnChildrenRequest(@NonNull ListView listView) {
+        MentorRequestAdapter listAdapter = (MentorRequestAdapter) listView.getAdapter();
 
         int totalHeight = 0;
         for (int i = 0; i < listAdapter.getCount(); i++) {
@@ -182,25 +162,6 @@ public class ProfileActivity extends AppCompatActivity {
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
-    }
-
-    public void setAccount(View view) {
-        // Change Profile
-        ((MainActivity) MainActivity.context_main).w.setProfile(((EditText) findViewById(R.id.permission)).getText().toString(),
-                ((EditText) findViewById(R.id.edit_id)).getText().toString(),
-                ((EditText) findViewById(R.id.edit_nickname)).getText().toString(),
-                ((EditText) findViewById(R.id.edit_password)).getText().toString(),
-                ((EditText) findViewById(R.id.edit_email)).getText().toString());
-
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        finish();
-        startActivity(getIntent());
-        overridePendingTransition(0, 0);
     }
 
 
@@ -234,23 +195,16 @@ public class ProfileActivity extends AppCompatActivity {
                 Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
             }
         }
-        else if(requestCode == 1) {
-            init();
-        }
     }
 
-    public void gotoMentorFunction(View view) {
-        String Perm = ((MainActivity) MainActivity.context_main).w.CUT.User.getPERM();
-        if (Perm.equals("일반 사용자")) {
-            ((MainActivity) MainActivity.context_main).w.requestMentorPerm();
-
-            Intent intent = new Intent(getApplicationContext(), MentorApplication.class);
-            startActivityForResult(intent, 1);
-        }
-        else {
-            Intent intent = new Intent(getApplicationContext(), MentorManagementActivity.class);
-            startActivityForResult(intent, 1);
-        }
+    public void reset() {
+        finish();
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
     }
 
+    public void gotoAdBoard(View view) {
+        Intent intent = new Intent(getApplicationContext(), Mentor_Ad.class);
+        startActivityForResult(intent, 1);
+    }
 }

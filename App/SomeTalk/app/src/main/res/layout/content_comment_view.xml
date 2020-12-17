@@ -32,20 +32,32 @@
             android:layout_height="35dp">
         </androidx.legacy.widget.Space>
 
-        <Button
+        <ImageView
+            android:layout_marginTop="-5dp"
             android:id="@+id/deleteCommentButton"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
+            android:layout_marginLeft="80dp"
             android:layout_weight="0"
-            android:layout_height="match_parent"
-            android:text="삭제"
+            android:layout_height="35dp"
+            android:src="@drawable/delete_btn"
             android:enabled="false"
-            android:visibility="invisible" />
+            android:visibility="invisible"
+            />
+
+<!--        <Button-->
+<!--            android:id="@+id/deleteCommentButton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_weight="0"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="삭제"-->
+<!--            android:enabled="false"-->
+<!--            android:visibility="invisible" />-->
     </LinearLayout>
 
-    <androidx.legacy.widget.Space
-        android:layout_width="1dp"
-        android:layout_height="5dp">
-    </androidx.legacy.widget.Space>
+<!--    <androidx.legacy.widget.Space-->
+<!--        android:layout_width="1dp"-->
+<!--        android:layout_height="-0dp">-->
+<!--    </androidx.legacy.widget.Space>-->
 
     <TextView
         android:id="@+id/Comment_Content"

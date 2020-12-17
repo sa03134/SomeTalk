@@ -65,7 +65,7 @@ public class Board_Twenty extends AppCompatActivity {
 
         for(int i = 0; i < ((CrawlingBoardTask)((MainActivity)MainActivity.context_main).w.CBT).CBI_COUNT; ++i) {
             CrawlingBoardItem CBI = ((MainActivity)MainActivity.context_main).w.CBT.CBI[i];
-            adapter.addItem(CBI.getTitle(), CBI.getAuthor() + " | " + CBI.getDatetime());
+            adapter.addItem(CBI.getTitle(), CBI.getAuthor() + " | " + CBI.getDatetime(), CBI.getAccept());
         }
     }
 }

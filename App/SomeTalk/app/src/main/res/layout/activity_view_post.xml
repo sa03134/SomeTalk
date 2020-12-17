@@ -79,19 +79,21 @@
                                 android:textColor="#000000"
                                 android:textSize="25dp" />
 
-                            <Button
+                            <ImageView
                                 android:id="@+id/editPostButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_width="50dp"
+                                android:layout_height="40dp"
                                 android:onClick="editPost"
-                                android:text="수정" />
+                                android:src="@drawable/edit_btn"
+                                />
 
-                            <Button
+                            <ImageView
                                 android:id="@+id/deletePostButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_width="50dp"
+                                android:layout_height="40dp"
                                 android:onClick="deletePost"
-                                android:text="삭제" />
+                                android:src="@drawable/delete_btn"
+                                />
                         </LinearLayout>
 
 
@@ -226,17 +228,15 @@
                                 android:inputType="textPersonName"
                                 android:fontFamily="@font/sdswagger"
                                 android:hint="댓글을 입력하세요." />
-
-                            <Button
+                            <ImageView
                                 android:id="@+id/btn_commentPush"
                                 android:layout_width="120dp"
                                 android:layout_height="35dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/button2"
+                                android:src="@drawable/ok_button"
                                 android:fontFamily="@font/sdswagger"
                                 android:onClick="setComment"
-                                android:text="확인"
-                                android:textColor="#ffffff" />
+                                />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -326,16 +326,15 @@
                                 android:fontFamily="@font/sdswagger"
                                 android:hint="답변을 입력하세요." />
 
-                            <Button
+
+                            <ImageView
                                 android:id="@+id/btn_replyPush"
                                 android:layout_width="120dp"
                                 android:layout_height="35dp"
                                 android:layout_weight="1"
-                                android:background="@drawable/button2"
-                                android:fontFamily="@font/sdswagger"
+                                android:src="@drawable/ok_button"
                                 android:onClick="setReply"
-                                android:text="확인"
-                                android:textColor="#ffffff" />
+                                />
 
                         </LinearLayout>
                     </LinearLayout>

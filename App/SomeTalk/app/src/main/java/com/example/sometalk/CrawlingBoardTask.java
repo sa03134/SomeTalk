@@ -27,6 +27,7 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
     CrawlingBoardTask(Map<String, String> UserCookie) {
         this.UserCookie = UserCookie;
     }
+    CrawlingBoardTask() {  }
 
     @Override
     protected Map<String, String> doInBackground(String... voids) {
@@ -55,6 +56,7 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     for(int i = 0; i < e.size(); ++i) {
                         CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
                         CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                        CBI[i].setAccept(e.get(i).select("#Accept").text());
                     }
                 } catch (IOException e) {
 
@@ -81,6 +83,7 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     for(int i = 0; i < e.size(); ++i) {
                         CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
                         CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                        CBI[i].setAccept(e.get(i).select("#Accept").text());
                     }
                 } catch (IOException e) {
 
@@ -97,7 +100,6 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                             .timeout(5000)
                             .execute();
 
-
                     Document doc = res.parse();
 
                     Elements e = doc.select("#boardRow");
@@ -108,6 +110,7 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     for(int i = 0; i < e.size(); ++i) {
                         CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
                         CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                        CBI[i].setAccept(e.get(i).select("#Accept").text());
                     }
                 } catch (IOException e) {
 
@@ -135,6 +138,7 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     for(int i = 0; i < e.size(); ++i) {
                         CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
                         CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                        CBI[i].setAccept(e.get(i).select("#Accept").text());
                     }
                 } catch (IOException e) {
 
@@ -162,6 +166,7 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                     for(int i = 0; i < e.size(); ++i) {
                         CBI[i] = new CrawlingBoardItem(e.get(i).select("#Title").text(), e.get(i).select("#Author").text(), e.get(i).select("#Date").text());
                         CBI[i].setLink(e.get(i).select("#Title > a").attr("href"));
+                        CBI[i].setAccept(e.get(i).select("#Accept").text());
                     }
                 } catch (IOException e) {
 
@@ -232,18 +237,14 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                 break;
 
             case "setPost" :
-                body = "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
-                        "Content-Disposition: form-data; name=\"category\"\n" +
-                        "\n" +
-                        voids[2].substring(voids[2].length() - 1) + "\n" +
-                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                body =  "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
                         "Content-Disposition: form-data; name=\"Title\"\n" +
                         "\n" +
-                        voids[3] + "\n" +
+                        voids[2] + "\n" +
                         "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
                         "Content-Disposition: form-data; name=\"Content\"\n" +
                         "\n" +
-                        voids[4] + "\n" +
+                        voids[3] + "\n" +
                         "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
                         "Content-Disposition: form-data; name=\"Type\"\n" +
                         "\n" +

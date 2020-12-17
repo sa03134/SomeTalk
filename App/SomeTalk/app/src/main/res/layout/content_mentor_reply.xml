@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ReplyacceptImage"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:onClick="popularBoard"
+            android:src="@drawable/accept_image"
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:id="@+id/ReplyCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="New Text"
+            android:textColor="#000000"
+            android:fontFamily="@font/sdswagger"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:id="@+id/ReplyNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="New Text"
+            android:textColor="#000000"
+            android:fontFamily="@font/sdswagger"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:id="@+id/ReplyContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="New Text"
+            android:textColor="#000000"
+            android:fontFamily="@font/sdswagger"
+            android:textSize="15dp" />
+
+
+        <TextView
+            android:id="@+id/ReplyDate"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/sdswagger"
+            android:text="New Text"
+            android:textColor="#666666"
+            android:textSize="15dp"
+            android:layout_marginBottom="3dp"/>
+    </LinearLayout>
+</LinearLayout>

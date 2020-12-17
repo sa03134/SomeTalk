@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,8 +28,8 @@ public class ViewPostActivity extends AppCompatActivity {
     ListView Reply_listview ;
     ReplyListAdapter Reply_adapter;
 
-    Button EditPost = null;
-    Button DeletePost = null;
+    ImageView EditPost = null;
+    ImageView DeletePost = null;
     CrawlingBoardItem CBI = null;
     public static Context context_main;
 
@@ -73,11 +74,11 @@ public class ViewPostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_post);
         context_main = this;
 
-        EditPost = (Button)findViewById(R.id.editPostButton);
+        EditPost = findViewById(R.id.editPostButton);
         EditPost.setEnabled(false);
         EditPost.setVisibility(View.INVISIBLE);
 
-        DeletePost = (Button)findViewById(R.id.deletePostButton);
+        DeletePost = findViewById(R.id.deletePostButton);
         DeletePost.setEnabled(false);
         DeletePost.setVisibility(View.INVISIBLE);
 
@@ -156,9 +157,9 @@ public class ViewPostActivity extends AppCompatActivity {
                 ((EditText)findViewById(R.id.Reply)).setFocusable(false);
                 ((EditText)findViewById(R.id.Reply)).setVisibility(View.INVISIBLE);
 
-                ((Button)findViewById(R.id.btn_replyPush)).setEnabled(false);
-                ((Button)findViewById(R.id.btn_replyPush)).setFocusable(false);
-                ((Button)findViewById(R.id.btn_replyPush)).setVisibility(View.INVISIBLE);
+                ((ImageView)findViewById(R.id.btn_replyPush)).setEnabled(false);
+                ((ImageView)findViewById(R.id.btn_replyPush)).setFocusable(false);
+                ((ImageView)findViewById(R.id.btn_replyPush)).setVisibility(View.INVISIBLE);
             }
         }
 //

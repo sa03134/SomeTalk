@@ -12,10 +12,8 @@
 
         <ImageView
             android:id="@+id/acceptImage"
-            android:layout_marginTop="15dp"
             android:layout_width="1dp"
             android:layout_height="1dp"
-            android:onClick="popularBoard"
             android:src="@drawable/accept_image"
             android:visibility="invisible" />
 
@@ -39,32 +37,30 @@
             android:text="Date" />
 
         <androidx.legacy.widget.Space
-            android:layout_width="60dp"
+            android:layout_width="5dp"
             android:layout_height="35dp">
         </androidx.legacy.widget.Space>
-
-        <Button
+        <ImageView
             android:id="@+id/acceptReplyButton"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_weight="0"
-            android:layout_height="match_parent"
-            android:text="채택"
+            android:layout_height="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="-10dp"
+            android:src="@drawable/accept_image"
             android:enabled="false"
             android:visibility="invisible" />
 
-        <Button
+        <ImageView
             android:id="@+id/deleteReplyButton"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_weight="0"
-            android:layout_height="match_parent"
-            android:text="삭제"
+            android:layout_height="30dp"
+            android:src="@drawable/delete_btn"
             android:enabled="false"
             android:visibility="invisible" />
     </LinearLayout>
-    <androidx.legacy.widget.Space
-        android:layout_width="1dp"
-        android:layout_height="5dp">
-    </androidx.legacy.widget.Space>
+
 
     <TextView
         android:id="@+id/Reply_Content"

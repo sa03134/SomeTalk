@@ -1,34 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".Mentor_Ad">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/roundlayout"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="255dp"
-            android:layout_height="35dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/sdswagger"
-            android:text="point"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="0dp"
+            android:id="@+id/textView2"
+            android:layout_width="192dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="@font/sdswagger"
-            android:text="사용"
-            android:textSize="16sp" />
+            android:gravity="center"
+            android:text="광고 등록"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/bottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="#000000"
+            android:textSize="2dp"
+            android:scrollbars="vertical"
+            android:background="@drawable/border"/>
     </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:fontFamily="@font/sdswagger"
+
+        android:layout_weight="0" />
+
+    <EditText
+        android:id="@+id/Content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="0.3"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="내용을 입력하세요"
+        android:fontFamily="@font/sdswagger"
+        android:inputType="textMultiLine" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@drawable/roundlayout">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  첨부파일 : "
+            android:gravity="center|right"
+        />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/FileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Check   "/>
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:text="upload"
+            android:onClick="uploadFile"
+            android:src="@drawable/upload_btn"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:id="@+id/setAd_btn"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_weight="0"
+            android:fontFamily="@font/sdswagger"
+            android:src="@drawable/ok_button"/>
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0" />
+
+        <ImageView
+            android:id="@+id/btn_postCancel"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0"
+            android:fontFamily="@font/sdswagger"
+            android:src="@drawable/cancel_btn" />
+    </LinearLayout>
+
 </LinearLayout>

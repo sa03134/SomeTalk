@@ -95,21 +95,21 @@
         android:gravity="right"
         android:orientation="horizontal">
 
-        <Button
+        <ImageView
             android:id="@+id/setPost"
             android:layout_width="75dp"
             android:layout_height="40dp"
             android:layout_weight="0"
             android:fontFamily="@font/sdswagger"
             android:onClick="setPost"
-            android:text="수정"/>
+            android:src="@drawable/edit_btn"/>
 
         <Space
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="0" />
 
-        <Button
+        <ImageView
             android:id="@+id/btn_postCancel"
             android:layout_width="75dp"
             android:layout_height="40dp"
@@ -117,7 +117,7 @@
             android:layout_weight="0"
             android:fontFamily="@font/sdswagger"
             android:onClick="prev"
-            android:text="취소" />
+            android:src="@drawable/cancel_btn" />
     </LinearLayout>
 
 </LinearLayout>

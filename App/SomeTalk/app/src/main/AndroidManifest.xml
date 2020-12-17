@@ -16,11 +16,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SomeTalk.NoActionBar">
+        android:theme="@style/Theme.SomeTalk.NoActionBar"
+        android:usesCleartextTraffic="true">
         <activity android:name=".UserManagement"></activity>
         <activity android:name=".MentorApplication" />
+        <activity android:name=".MentorManagementActivity"></activity>
         <activity android:name=".Board_Love" />
         <activity android:name=".Board_Some" />
         <activity android:name=".Mentor_Ad" />
