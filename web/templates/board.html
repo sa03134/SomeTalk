@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Board - OOO Community</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=".">OOO Community</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href=".">Home</a></li>
+            <li class="active"><a>Board</a></li>
+            {% if session %}
+            <li><a href="Profile">Profile</a></li>
+            <li><a href="Logout">Logout</a></li>
+            {% else %}
+            <li><a href="login">Login</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}
+    <h1 class="login-title"> </h1>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive project-list">
+                <table class="table project-table table-centered table-nowrap">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">DATE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for post in posts %}
+                    <tr>
+                      <th scope="row">{{ post.No }}</th>
+                      <td><a href="ViewPost?No={{ post.No }}">{{ post.Title }}</a></td>
+                      <td>{{ post.Author }}</td>
+                      <td>{{ post.DATE }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <input class="btn btn-block login-btn" type="button" name="write" id="name" value="작성" onclick='moveWritePage()'>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.container -->
+    {% endblock %}
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script>
+      function moveWritePage() {
+        location.href = "/WritePost";
+      };
+    </script>
+  </body>
+</html>

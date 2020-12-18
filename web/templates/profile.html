@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Profile - OOO Community</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=".">OOO Community</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href=".">Home</a></li>
+            <li><a href="board">Board</a></li>
+            {% if session %}
+            <li class="active"><a>Profile</a></li>
+            <li><a href="Logout">Logout</a></li>
+            {% else %}
+            <li><a href="login">Login</a></li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 login-section-wrapper">
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">{{ session.name }}</h1>
+            <form method="POST" action="/Edit_Profile">
+              <div class="form-group">
+                <label for="ID">ID</label>
+                <div name="ID">{{ user.ID }}</div>
+              </div>
+              <div class="form-group mb-4">
+                <label for="password">PW</label>
+                {{ user.PW }}
+              </div>
+              <div class="form-group">
+                <label for="Nickname">Nick Name</label>
+                {{ user.NICK }}
+              </div>
+              <div class="form-group">
+                <label for="Comment">Comment</label>
+                {{ user.Comment }}   
+              </div>
+              <div class="form-group">
+                <label for="Web">Web</label>
+                <input type="text" class="form-control" name="web" value="{{ web }}">
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="base64" id="jb-checkbox" class="custom-control-input" value="1">
+                <label class="custom-control-label" for="jb-checkbox">Base64로 데이터 전송</label>
+              </div>
+              <input class="btn btn-block login-btn" type="submit" value="수정">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+
+    
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>

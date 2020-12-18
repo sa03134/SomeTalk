@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Register - OOO Community</title>
+
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/starter-template.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href=".">OOO Community</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href=".">Home</a></li>
+            <li><a href="board">Board</a></li>
+            <li><a hrer="login">Login</a></li>
+            <li class="active"><a>Register</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 login-section-wrapper">
+          <div class="login-wrapper my-auto">
+            <h1 class="login-title">Register</h1>
+            <form method="POST" action="reg_Auth">
+              <div class="form-group">
+                <label for="ID">ID</label>
+                <input type="text" name="ID" id="ID" class="form-control" placeholder="enter your ID">
+              </div>
+              <div class="form-group mb-4">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="enter your passsword">
+              </div>
+              <div class="form-group">
+                <label for="Nickname">Nick Name</label>
+                <input type="text" name="Nickname" id="Nickname" class="form-control" placeholder="enter your Nickname">
+              </div>
+              <div class="form-group">
+                <label for="Comment">Comment</label>
+                <input type="text" name="Comment" id="Comment" class="form-control" placeholder="enter your Comment">
+              </div>
+              <input name="login" id="login" class="btn btn-block login-btn" type="submit" value="Login">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-sm-4"></div>
+      </div>
+    </div>
+
+    
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
