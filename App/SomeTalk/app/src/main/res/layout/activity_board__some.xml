@@ -12,13 +12,17 @@ tools:context=".Board_Some">
     android:orientation="vertical"
     tools:ignore="MissingConstraints">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="192dp"
         android:layout_height="35dp"
-        app:srcCompat="@drawable/logo" />
+        android:layout_gravity="center"
+        android:fontFamily="@font/sdswagger"
+        android:text="썸타는 중"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/bottomBar"

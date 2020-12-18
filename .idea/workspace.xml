@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0f908015-02c1-4402-a9f7-66fa7183ddde" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__love.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__love.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__some.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__some.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__teen.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__teen.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__twenty.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_board__twenty.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_edit_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_edit_post.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_popular_board.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_popular_board.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_write_post.xml" beforeDir="false" afterPath="$PROJECT_DIR$/App/SomeTalk/app/src/main/res/layout/activity_write_post.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1lpqqXRLICNP7HbTMgCpDeOtalr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f908015-02c1-4402-a9f7-66fa7183ddde" name="Default Changelist" comment="" />
+      <created>1608304571584</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608304571584</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608304717890">
+      <screen x="0" y="0" width="1920" height="1034" />
+    </state>
+    <state x="414" y="171" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1034@0.0.1920.1034" timestamp="1608304717890" />
+    <state x="360" y="120" width="1200" height="794" key="AVDManager" timestamp="1608304995077">
+      <screen x="0" y="0" width="1920" height="1034" />
+    </state>
+    <state x="360" y="120" width="1200" height="794" key="AVDManager/0.0.1920.1034@0.0.1920.1034" timestamp="1608304995077" />
+    <state x="740" y="257" key="FileChooserDialogImpl" timestamp="1608307094145">
+      <screen x="0" y="0" width="1920" height="1034" />
+    </state>
+    <state x="740" y="257" key="FileChooserDialogImpl/0.0.1920.1034@0.0.1920.1034" timestamp="1608307094145" />
+    <state x="461" y="161" key="SettingsEditor" timestamp="1608306726008">
+      <screen x="0" y="0" width="1920" height="1034" />
+    </state>
+    <state x="461" y="161" key="SettingsEditor/0.0.1920.1034@0.0.1920.1034" timestamp="1608306726008" />
+  </component>
+</project>

@@ -10,13 +10,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="192dp"
             android:layout_height="35dp"
-            app:srcCompat="@drawable/logo" />
+            android:layout_gravity="center"
+            android:fontFamily="@font/sdswagger"
+            android:text="글 수정"
+            android:gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/bottomBar"
