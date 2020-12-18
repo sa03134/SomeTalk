@@ -227,6 +227,5 @@ public class WebLogic {
     public void getDashboard() {
         CBT = new CrawlingBoardTask(UserCookie);
         CBT.execute("getDashboard");
-
     }
 }

@@ -3,10 +3,17 @@ package com.example.sometalk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import java.io.InputStream;
+import java.net.URL;
 
 public class SometalkMain extends AppCompatActivity {
 
@@ -34,8 +41,34 @@ public class SometalkMain extends AppCompatActivity {
         else {
             ((LinearLayout)findViewById(R.id.admin_layout)).setVisibility(View.INVISIBLE);
             ((LinearLayout)findViewById(R.id.admin_layout)).setEnabled(false);
-
         }
+
+        Handler handler = new Handler();
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final ImageView iv = (ImageView) findViewById(R.id.sometalkAd);
+                    URL url = new URL("http://www.qerogram.kro.kr:41528/static/ad.jpg");
+                    InputStream is = url.openStream();
+                    final Bitmap bm = BitmapFactory.decodeStream(is);
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {  // 화면에 그려줄 작업
+                            iv.setImageBitmap(bm);
+                        }
+                    });
+                    iv.setImageBitmap(bm); //비트맵 객체로 보여주기
+                } catch (Exception e) {
+
+                }
+
+            }
+        });
+
+        t.start();
     }
 
     public void gotoTwentyBoard(View view) {
