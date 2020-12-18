@@ -140,6 +140,7 @@
             android:fontFamily="@font/sdswagger"
             android:onClick="Cancel_Ad"
             android:src="@drawable/cancel_btn" />
+
     </LinearLayout>
 
 </LinearLayout>

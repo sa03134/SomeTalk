@@ -95,7 +95,7 @@
     <EditText
         android:id="@+id/Content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="600dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="20dp"
@@ -106,12 +106,40 @@
         android:fontFamily="@font/sdswagger"
         android:inputType="textMultiLine" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <LinearLayout
         android:layout_marginTop="-10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  첨부파일 : "
+            android:gravity="center|right"
+            />
+
+        <TextView
+            android:id="@+id/FileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="No Check"/>
+
+        <ImageView
+            android:layout_marginTop="-10dp"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:text="upload"
+            android:onClick="uploadFile"
+            android:src="@drawable/upload_btn"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="0dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"

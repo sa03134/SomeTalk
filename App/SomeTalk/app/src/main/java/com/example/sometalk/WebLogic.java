@@ -88,9 +88,9 @@ public class WebLogic {
         CBT.execute("getPost", Link);
     }
 
-    public void setPost(String Board_Type, String Title, String Content) {
+    public void setPost(String Board_Type, String Title, String Content, String path) {
         CBT = new CrawlingBoardTask(UserCookie);
-        CBT.execute("setPost", Board_Type, Title, Content);
+        CBT.execute("setPost", Board_Type, Title, Content, path);
     }
 
     public void setComment(String Board_Type, String No, String Comment) {

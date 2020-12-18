@@ -9,7 +9,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Map;
 
 public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, String>> {
@@ -245,6 +249,29 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                 break;
 
             case "setPost" :
+                String encodeBytes = "";
+                if(voids[4] != null) {
+                    int size = (int) new File(voids[4]).length();
+                    byte[] lpbuffer = new byte[size];
+
+
+                    File f = new File(voids[4]);
+                    FileInputStream fs1 = null;
+                    encodeBytes = null;
+
+                    try {
+                        fs1 = new FileInputStream(f);
+                        fs1.read(lpbuffer, 0, size);
+                        Base64.Encoder encoder = Base64.getEncoder();
+                        encodeBytes = encoder.encodeToString(lpbuffer);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
                 body =  "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
                         "Content-Disposition: form-data; name=\"Title\"\n" +
                         "\n" +
@@ -256,13 +283,22 @@ public class CrawlingBoardTask extends AsyncTask<String, Void, Map<String, Strin
                         "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
                         "Content-Disposition: form-data; name=\"Type\"\n" +
                         "\n" +
-                        voids[1] + "\n" +
-                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
-                        "Content-Disposition: form-data; name=\"file\"; filename=\"\"\n" +
-                        "Content-Type: application/octet-stream\n" +
-                        "\n" +
-                        "\n" +
-                        "------WebKitFormBoundary3Fc9KrOBytBNQJ6V--\n";
+                        voids[1] + "\n";
+
+                if(encodeBytes != "") {
+                    body += "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                            "Content-Disposition: form-data; name=\"file\"; filename=\"test.jpg\"\n" +
+                            "\n" +
+                            encodeBytes + "\n" +
+                            "\n";
+                } else {
+                    body += "------WebKitFormBoundary3Fc9KrOBytBNQJ6V\n" +
+                            "Content-Disposition: form-data; name=\"file\"; filename=\"\"\n" +
+                            "\n" +
+                            "\n";
+                }
+                body += "------WebKitFormBoundary3Fc9KrOBytBNQJ6V--\n";
+
                 try {
                     Connection.Response res = Jsoup.connect("http://www.qerogram.kro.kr:41528/WritePost")
                             .header("Content-Type", "multipart/form-data; boundary=----WebKitFormBoundary3Fc9KrOBytBNQJ6V")

@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.w3c.dom.Text;
+
+import java.io.InputStream;
+import java.net.URL;
 
 public class ViewPostActivity extends AppCompatActivity {
     String Link = "";
@@ -169,6 +175,34 @@ public class ViewPostActivity extends AppCompatActivity {
             ((TextView)findViewById(R.id.Reply_Count)).setText(" 답변 "  + String.valueOf(((MainActivity) MainActivity.context_main).w.CBT.Replys.length)+ "개");
             setListViewHeightBasedOnChildrenReply(Reply_listview);
         }
+
+
+        Handler handler = new Handler();
+
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    final ImageView iv = (ImageView) findViewById(R.id.postImage);
+                    URL url = new URL("http://www.qerogram.kro.kr:41528/static/board_image/" + Type + "_" + No + "/" + ((TextView)findViewById(R.id.AuthorText)).getText() + ".jpg");
+                    InputStream is = url.openStream();
+                    final Bitmap bm = BitmapFactory.decodeStream(is);
+                    handler.post(new Runnable() {
+
+                        @Override
+                        public void run() {  // 화면에 그려줄 작업
+                            iv.setImageBitmap(bm);
+                        }
+                    });
+                    iv.setImageBitmap(bm); //비트맵 객체로 보여주기
+                } catch (Exception e) {
+
+                }
+
+            }
+        });
+
+        t.start();
     }
 
     public void setComment(View view) {
