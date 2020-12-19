@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EditPostActivity extends AppCompatActivity {
     String Type;
@@ -29,6 +30,15 @@ public class EditPostActivity extends AppCompatActivity {
         Title = ((EditText)findViewById(R.id.Title)).getText().toString();
         Content = ((EditText)findViewById(R.id.Content)).getText().toString();
         ((MainActivity)MainActivity.context_main).w.editPost(Type, No, Title, Content);
+
+        if(Title.equals("")) {
+            Toast.makeText(this, "제목을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(Content.equals("")) {
+            Toast.makeText(this, "본문을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         try {
             Thread.sleep(500);

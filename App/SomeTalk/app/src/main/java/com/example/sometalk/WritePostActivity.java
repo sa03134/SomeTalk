@@ -89,6 +89,14 @@ public class WritePostActivity extends AppCompatActivity {
     public void setPost(View view) {
         String Title = ((EditText)findViewById(R.id.Title)).getText().toString();
         String Content = ((EditText)findViewById(R.id.Content)).getText().toString();
+        if(Title.equals("")) {
+            Toast.makeText(this, "제목을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(Content.equals("")) {
+            Toast.makeText(this, "본문을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         ((MainActivity)MainActivity.context_main).w.setPost(String.valueOf(Integer.parseInt(Board_Type) + 1), Title, Content, path);
 

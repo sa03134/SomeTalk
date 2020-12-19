@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
 //        email = "test2";
 //        password = "1";
-        email = "admin";
-        password = "sometalk";
+        //email = "admin";
+        //password = "sometalk";
 
         w = new WebLogic(email, password);
 
